@@ -1,0 +1,2 @@
+class OperaCollectionsController < ApplicationController
+end
