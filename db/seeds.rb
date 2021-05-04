@@ -23,4 +23,19 @@ Opera.create([
     # img_src: "https://static01.nyt.com/images/2018/01/02/arts/02tosca-review2/02tosca-review2-jumbo.jpg?quality=90&auto=webp"
 
     # }
+    # { title: "Tosca",
+    # director: "David McVicar",
+    # description: "a conservative and traditional staging produced by Peter Gelb after receiving criticism for Luc Bondy's stark staging having been 'gratuitously sordid' and 'messily conceptualized' (The NY Times).",
+    # img_src: "https://static01.nyt.com/images/2017/12/31/arts/02tosca-review4/02tosca-review4-superJumbo.jpg?quality=90&auto=webp",
+    # }
+    #  { title: "Turandot",
+    # director: "Franco Zeffirelli",
+    # description: "2015 revival of 1987 Zeffirelli production",
+    # img_src: "https://static01.nyt.com/images/2015/09/25/arts/25TURANDOT/25TURANDOT-jumbo.jpg?quality=90&auto=webp",
+    # }
+    # { title: "Otello",
+    # director: "Bartlett Sher",
+    # description: "2015 premier of Sher's staging",
+    # img_src: "https://static01.nyt.com/images/2015/09/13/arts/13TOMMASINI1/13TOMMASINI1-jumbo.jpg?quality=90&auto=webp",
+    # }
 ])
