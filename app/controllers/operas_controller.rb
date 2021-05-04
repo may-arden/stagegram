@@ -5,7 +5,7 @@ class OperasController < ApplicationController
         # @operas = Opera.all 
         # render json: @operas, except: [:created_at, :updated_at]
         operas = Opera.all 
-        render json: OperaSerializer.new(opera)
+        render json: OperaSerializer.new(operas)
     end 
 
 
