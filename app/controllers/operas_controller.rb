@@ -1,8 +1,9 @@
 class OperasController < ApplicationController
 
+    # GET /operas
     def index
         operas = Opera.all 
-        render json: operas, include: [:title, :director, :description, :img_src]
+        render json: operas, except: [:created_at, :updated_at]
     end 
 
 end
