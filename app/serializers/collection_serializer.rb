@@ -1,4 +1,4 @@
 class CollectionSerializer
   include FastJsonapi::ObjectSerializer
-  attributes 
+  attributes :name, :user 
 end
