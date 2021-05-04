@@ -38,4 +38,9 @@ Opera.create([
     # description: "2015 premier of Sher's staging",
     # img_src: "https://static01.nyt.com/images/2015/09/13/arts/13TOMMASINI1/13TOMMASINI1-jumbo.jpg?quality=90&auto=webp",
     # }
+    { title: "Don Giovanni",
+    director: "Marcelo Lombardero",
+    description: "2020 premiere of new staging at Teatro Mayor",
+    img_src: "https://operawire.com/wp-content/uploads/2020/02/87797290_2730083613771778_5772014499078864896_o-1536x1025.jpg",
+    }
 ])
