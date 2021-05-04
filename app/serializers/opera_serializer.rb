@@ -1,3 +1,0 @@
-class OperaSerializer
-
-end 
