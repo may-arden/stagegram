@@ -2,8 +2,10 @@ class OperasController < ApplicationController
 
     # GET /operas
     def index
+        # OLD CODE PRIOR TO INSTALLATION OF 'FAST_JSONAPI'
         # @operas = Opera.all 
         # render json: @operas, except: [:created_at, :updated_at]
+        # CURRENT CODE TO REFLECT 'FAST_JSONAPI'
         operas = Opera.all 
         render json: OperaSerializer.new(operas)
     end 
