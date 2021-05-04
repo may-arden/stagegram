@@ -1,0 +1,3 @@
+class OperaCollectionSerializer
+
+end 
