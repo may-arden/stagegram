@@ -1,0 +1,555 @@
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateOperas (20210504062202)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "operas" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "director" varchar, "description" varchar, "img_src" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210504062202"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateCollections (20210504062410)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "collections" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "user" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210504062410"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateOperaCollections (20210504062512)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "opera_collections" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "opera_id" integer NOT NULL, "collection_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_da382d0d87"
+FOREIGN KEY ("opera_id")
+  REFERENCES "operas" ("id")
+, CONSTRAINT "fk_rails_d33d95aa5e"
+FOREIGN KEY ("collection_id")
+  REFERENCES "collections" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_opera_collections_on_opera_id" ON "opera_collections" ("opera_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_opera_collections_on_collection_id" ON "opera_collections" ("collection_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210504062512"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-05-04 06:25:52.057922"], ["updated_at", "2021-05-04 06:25:52.057922"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/operas" for ::1 at 2021-05-03 23:29:00 -0700
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by OperasController#index as HTML
+  [1m[36mOpera Load (0.2ms)[0m  [1m[34mSELECT "operas".* FROM "operas"[0m
+  ↳ app/controllers/operas_controller.rb:5:in `index'
+Completed 200 OK in 19ms (Views: 2.3ms | ActiveRecord: 0.2ms | Allocations: 4272)
+
+
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mOpera Create (0.9ms)[0m  [1m[32mINSERT INTO "operas" ("title", "director", "description", "img_src", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "La Boheme"], ["director", "Franco Zeffirelli"], ["description", "2019 revival of beloved 1981 Zeffirelli production"], ["img_src", "https://static01.nyt.com/images/2019/10/31/arts/27boheme3/27boheme3-jumbo.jpg?quality=90&auto=webp"], ["created_at", "2021-05-04 06:34:31.932142"], ["updated_at", "2021-05-04 06:34:31.932142"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/operas" for ::1 at 2021-05-03 23:34:44 -0700
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by OperasController#index as HTML
+  [1m[36mOpera Load (0.2ms)[0m  [1m[34mSELECT "operas".* FROM "operas"[0m
+  ↳ app/controllers/operas_controller.rb:5:in `index'
+Completed 500 Internal Server Error in 38ms (ActiveRecord: 0.8ms | Allocations: 8603)
+
+
+  
+NoMethodError (undefined method `serializable_hash' for "La Boheme":String):
+  
+app/controllers/operas_controller.rb:5:in `index'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mOpera Create (0.4ms)[0m  [1m[32mINSERT INTO "operas" ("title", "director", "description", "img_src", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "La Boheme"], ["director", "Franco Zeffirelli"], ["description", "2019 revival of beloved 1981 Zeffirelli production"], ["img_src", "https://static01.nyt.com/images/2019/10/31/arts/27boheme3/27boheme3-jumbo.jpg?quality=90&auto=webp"], ["created_at", "2021-05-04 06:37:16.469573"], ["updated_at", "2021-05-04 06:37:16.469573"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/operas" for ::1 at 2021-05-03 23:37:23 -0700
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by OperasController#index as HTML
+  [1m[36mOpera Load (0.2ms)[0m  [1m[34mSELECT "operas".* FROM "operas"[0m
+  ↳ app/controllers/operas_controller.rb:5:in `index'
+Completed 500 Internal Server Error in 35ms (ActiveRecord: 0.6ms | Allocations: 8548)
+
+
+  
+NoMethodError (undefined method `serializable_hash' for "La Boheme":String):
+  
+app/controllers/operas_controller.rb:5:in `index'
+Started GET "/operas" for ::1 at 2021-05-03 23:39:07 -0700
+Processing by OperasController#index as HTML
+  [1m[36mOpera Load (0.3ms)[0m  [1m[34mSELECT "operas".* FROM "operas"[0m
+  ↳ app/controllers/operas_controller.rb:5:in `index'
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.3ms | Allocations: 1804)
+
+
+  
+NoMethodError (undefined method `serializable_hash' for "La Boheme":String):
+  
+app/controllers/operas_controller.rb:5:in `index'
+Started GET "/operas" for ::1 at 2021-05-03 23:40:13 -0700
+Processing by OperasController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/operas_controller.rb:5:in `index'
+  [1m[36mOpera Load (0.2ms)[0m  [1m[34mSELECT "operas".* FROM "operas"[0m
+  ↳ app/controllers/operas_controller.rb:5:in `index'
+Completed 200 OK in 12ms (Views: 10.0ms | ActiveRecord: 1.4ms | Allocations: 5710)
+
+
+  [1m[35m (3.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mOpera Load (0.2ms)[0m  [1m[34mSELECT "operas".* FROM "operas" WHERE "operas"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mOpera Destroy (1.4ms)[0m  [1m[31mDELETE FROM "operas" WHERE "operas"."id" = ?[0m  [["id", 1]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mOpera Load (0.3ms)[0m  [1m[34mSELECT "operas".* FROM "operas" WHERE "operas"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mOpera Destroy (0.7ms)[0m  [1m[31mDELETE FROM "operas" WHERE "operas"."id" = ?[0m  [["id", 2]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mOpera Load (0.4ms)[0m  [1m[34mSELECT "operas".* FROM "operas" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "operas"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mOpera Create (0.3ms)[0m  [1m[32mINSERT INTO "operas" ("title", "director", "description", "img_src", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "La Boheme"], ["director", "Franco Zeffirelli"], ["description", "2019 revival of beloved 1981 Zeffirelli production"], ["img_src", "https://static01.nyt.com/images/2019/10/31/arts/27boheme3/27boheme3-jumbo.jpg?quality=90&auto=webp"], ["created_at", "2021-05-04 06:41:30.896605"], ["updated_at", "2021-05-04 06:41:30.896605"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/operas" for ::1 at 2021-05-03 23:41:41 -0700
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by OperasController#index as HTML
+  [1m[36mOpera Load (0.3ms)[0m  [1m[34mSELECT "operas".* FROM "operas"[0m
+  ↳ app/controllers/operas_controller.rb:5:in `index'
+Completed 200 OK in 16ms (Views: 9.4ms | ActiveRecord: 0.7ms | Allocations: 7685)
+
+
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mOpera Load (0.2ms)[0m  [1m[34mSELECT "operas".* FROM "operas" WHERE "operas"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Started GET "/operas" for ::1 at 2021-05-03 23:42:48 -0700
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by OperasController#index as HTML
+  [1m[36mOpera Load (0.2ms)[0m  [1m[34mSELECT "operas".* FROM "operas"[0m
+  ↳ app/controllers/operas_controller.rb:5:in `index'
+Completed 200 OK in 32ms (Views: 25.4ms | ActiveRecord: 0.6ms | Allocations: 7660)
+
+
+Started GET "/operas" for ::1 at 2021-05-03 23:42:50 -0700
+Processing by OperasController#index as HTML
+  [1m[36mOpera Load (0.2ms)[0m  [1m[34mSELECT "operas".* FROM "operas"[0m
+  ↳ app/controllers/operas_controller.rb:5:in `index'
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.2ms | Allocations: 749)
+
+
+Started GET "/operas" for ::1 at 2021-05-03 23:43:40 -0700
+Processing by OperasController#index as HTML
+  [1m[36mOpera Load (0.2ms)[0m  [1m[34mSELECT "operas".* FROM "operas"[0m
+  ↳ app/controllers/operas_controller.rb:5:in `index'
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.2ms | Allocations: 749)
+
+
+Started GET "/operas" for ::1 at 2021-05-03 23:44:29 -0700
+Processing by OperasController#index as HTML
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/operas_controller.rb:5:in `index'
+  [1m[36mOpera Load (0.1ms)[0m  [1m[34mSELECT "operas".* FROM "operas"[0m
+  ↳ app/controllers/operas_controller.rb:5:in `index'
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.8ms | Allocations: 6303)
+
+
+  
+NoMethodError (undefined method `serializable_hash' for "La Boheme":String):
+  
+app/controllers/operas_controller.rb:5:in `index'
+Started GET "/operas" for ::1 at 2021-05-03 23:46:50 -0700
+  
+SyntaxError (/Users/mayarden/Desktop/stagegram/app/controllers/operas_controller.rb:7: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/operas_controller.rb:7: syntax error, unexpected end-of-input, expecting end
+app/controllers/operas_controller.rb:7: syntax error, unexpected end-of-input, expecting end
+Started GET "/operas" for ::1 at 2021-05-03 23:46:58 -0700
+Processing by OperasController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/operas_controller.rb:5:in `index'
+  [1m[36mOpera Load (0.2ms)[0m  [1m[34mSELECT "operas".* FROM "operas"[0m
+  ↳ app/controllers/operas_controller.rb:5:in `index'
+Completed 200 OK in 9ms (Views: 7.9ms | ActiveRecord: 1.0ms | Allocations: 5642)
+
+
+Started GET "/operas/3" for ::1 at 2021-05-03 23:50:57 -0700
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by OperasController#show as HTML
+  Parameters: {"id"=>"3"}
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms | Allocations: 3801)
+
+
+  
+NameError (undefined local variable or method `opera' for #<OperasController:0x007fdedf3ddb80>
+Did you mean?  open):
+  
+app/controllers/operas_controller.rb:12:in `show'
+Started GET "/operas/3" for ::1 at 2021-05-03 23:52:15 -0700
+Processing by OperasController#show as HTML
+  Parameters: {"id"=>"3"}
+Completed 500 Internal Server Error in 3ms (Allocations: 1668)
+
+
+  
+NameError (undefined local variable or method `opera' for #<OperasController:0x007fdedf2aa3d0>
+Did you mean?  open):
+  
+app/controllers/operas_controller.rb:12:in `show'
+Started GET "/operas/3" for ::1 at 2021-05-03 23:52:23 -0700
+Processing by OperasController#show as HTML
+  Parameters: {"id"=>"3"}
+Completed 200 OK in 0ms (Views: 0.2ms | Allocations: 116)
+
+
+Started GET "/operas/1" for ::1 at 2021-05-03 23:52:42 -0700
+Processing by OperasController#show as HTML
+  Parameters: {"id"=>"1"}
+Completed 200 OK in 0ms (Views: 0.1ms | Allocations: 68)
+
+
+Started GET "/operas/2" for ::1 at 2021-05-03 23:52:44 -0700
+Processing by OperasController#show as HTML
+  Parameters: {"id"=>"2"}
+Completed 200 OK in 0ms (Views: 0.1ms | Allocations: 71)
+
+
+Started GET "/operas" for ::1 at 2021-05-03 23:52:47 -0700
+Processing by OperasController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/operas_controller.rb:6:in `index'
+  [1m[36mOpera Load (0.2ms)[0m  [1m[34mSELECT "operas".* FROM "operas"[0m
+  ↳ app/controllers/operas_controller.rb:6:in `index'
+Completed 200 OK in 19ms (Views: 8.9ms | ActiveRecord: 1.3ms | Allocations: 7787)
+
+
+Started GET "/operas/3" for ::1 at 2021-05-03 23:53:01 -0700
+Processing by OperasController#show as HTML
+  Parameters: {"id"=>"3"}
+Completed 200 OK in 0ms (Views: 0.2ms | Allocations: 87)
+
+
+Started GET "/operas/" for ::1 at 2021-05-03 23:53:17 -0700
+Processing by OperasController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/operas_controller.rb:6:in `index'
+  [1m[36mOpera Load (0.1ms)[0m  [1m[34mSELECT "operas".* FROM "operas"[0m
+  ↳ app/controllers/operas_controller.rb:6:in `index'
+Completed 200 OK in 17ms (Views: 16.1ms | ActiveRecord: 1.1ms | Allocations: 5371)
+
+
+Started GET "/operas/3" for ::1 at 2021-05-03 23:53:21 -0700
+Processing by OperasController#show as HTML
+  Parameters: {"id"=>"3"}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 73)
+
+
+Started GET "/operas/3" for ::1 at 2021-05-03 23:55:36 -0700
+Processing by OperasController#show as HTML
+  Parameters: {"id"=>"3"}
+Completed 200 OK in 0ms (Views: 0.1ms | Allocations: 87)
+
+
+Started GET "/operas/3" for ::1 at 2021-05-03 23:55:37 -0700
+Processing by OperasController#show as HTML
+  Parameters: {"id"=>"3"}
+Completed 200 OK in 0ms (Views: 0.1ms | Allocations: 68)
+
+
+Started GET "/operas/3" for ::1 at 2021-05-03 23:56:42 -0700
+Processing by OperasController#show as HTML
+  Parameters: {"id"=>"3"}
+Completed 200 OK in 0ms (Views: 0.1ms | Allocations: 87)
+
+
+Started GET "/opera/3" for ::1 at 2021-05-03 23:57:30 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/opera/3"):
+  
+Started GET "/operas/1" for ::1 at 2021-05-03 23:57:59 -0700
+Processing by OperasController#show as HTML
+  Parameters: {"id"=>"1"}
+Completed 200 OK in 0ms (Views: 0.2ms | Allocations: 68)
+
+
+Started GET "/operas/2" for ::1 at 2021-05-03 23:58:01 -0700
+Processing by OperasController#show as HTML
+  Parameters: {"id"=>"2"}
+Completed 200 OK in 0ms (Views: 0.2ms | Allocations: 68)
+
+
+Started GET "/operas/3" for ::1 at 2021-05-03 23:58:04 -0700
+Processing by OperasController#show as HTML
+  Parameters: {"id"=>"3"}
+Completed 200 OK in 0ms (Views: 0.1ms | Allocations: 68)
+
+
+Started GET "/operas/4" for ::1 at 2021-05-03 23:58:06 -0700
+Processing by OperasController#show as HTML
+  Parameters: {"id"=>"4"}
+Completed 200 OK in 1ms (Views: 0.2ms | Allocations: 68)
+
+
+Started GET "/operas/5" for ::1 at 2021-05-03 23:58:08 -0700
+Processing by OperasController#show as HTML
+  Parameters: {"id"=>"5"}
+Completed 200 OK in 0ms (Views: 0.2ms | Allocations: 68)
+
+
+Started GET "/operas/5" for ::1 at 2021-05-03 23:59:14 -0700
+Processing by OperasController#show as HTML
+  Parameters: {"id"=>"5"}
+Completed 200 OK in 0ms (Views: 0.1ms | Allocations: 87)
+
+
+Started GET "/operas/3" for ::1 at 2021-05-03 23:59:16 -0700
+Processing by OperasController#show as HTML
+  Parameters: {"id"=>"3"}
+Completed 200 OK in 0ms (Views: 0.2ms | Allocations: 68)
+
+
+Started GET "/operas/2" for ::1 at 2021-05-03 23:59:18 -0700
+Processing by OperasController#show as HTML
+  Parameters: {"id"=>"2"}
+Completed 200 OK in 0ms (Views: 0.1ms | Allocations: 68)
+
+
+Started GET "/operas" for ::1 at 2021-05-03 23:59:21 -0700
+Processing by OperasController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/operas_controller.rb:6:in `index'
+  [1m[36mOpera Load (0.2ms)[0m  [1m[34mSELECT "operas".* FROM "operas"[0m
+  ↳ app/controllers/operas_controller.rb:6:in `index'
+Completed 200 OK in 12ms (Views: 9.7ms | ActiveRecord: 1.8ms | Allocations: 5365)
+
+
+Started GET "/operas/3" for ::1 at 2021-05-04 00:00:35 -0700
+Processing by OperasController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/operas_controller.rb:12:in `show'
+  [1m[36mOpera Load (0.4ms)[0m  [1m[34mSELECT "operas".* FROM "operas" WHERE "operas"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/operas_controller.rb:12:in `show'
+Completed 200 OK in 13ms (Views: 0.4ms | ActiveRecord: 1.6ms | Allocations: 5618)
+
+
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mOpera Create (0.5ms)[0m  [1m[32mINSERT INTO "operas" ("title", "director", "description", "img_src", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "La Boheme"], ["director", "Franco Zeffirelli"], ["description", "2019 revival of beloved 1981 Zeffirelli production"], ["img_src", "https://static01.nyt.com/images/2018/09/27/arts/27boheme2/merlin_144322842_74306858-a036-4a0a-a8f2-b091cb2ddb3d-jumbo.jpg?quality=90&auto=webp"], ["created_at", "2021-05-04 07:04:59.526875"], ["updated_at", "2021-05-04 07:04:59.526875"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/operas/3" for ::1 at 2021-05-04 00:05:05 -0700
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by OperasController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mOpera Load (0.1ms)[0m  [1m[34mSELECT "operas".* FROM "operas" WHERE "operas"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/operas_controller.rb:12:in `show'
+Completed 200 OK in 17ms (Views: 0.5ms | ActiveRecord: 0.6ms | Allocations: 7953)
+
+
+Started GET "/operas/" for ::1 at 2021-05-04 00:05:11 -0700
+Processing by OperasController#index as HTML
+  [1m[36mOpera Load (0.2ms)[0m  [1m[34mSELECT "operas".* FROM "operas"[0m
+  ↳ app/controllers/operas_controller.rb:6:in `index'
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.2ms | Allocations: 869)
+
+
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mOpera Create (0.5ms)[0m  [1m[32mINSERT INTO "operas" ("title", "director", "description", "img_src", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Tosca"], ["director", "David McVicar"], ["description", "a conservative and traditional staging produced by Peter Gelb after receiving criticism for Luc Bondy's stark staging having been 'gratuitously sordid' and 'messily conceptualized' (The NY Times)."], ["img_src", "https://static01.nyt.com/images/2018/01/02/arts/02tosca-review2/02tosca-review2-jumbo.jpg?quality=90&auto=webp"], ["created_at", "2021-05-04 07:09:48.747376"], ["updated_at", "2021-05-04 07:09:48.747376"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/operas/" for ::1 at 2021-05-04 00:09:52 -0700
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by OperasController#index as HTML
+  [1m[36mOpera Load (0.1ms)[0m  [1m[34mSELECT "operas".* FROM "operas"[0m
+  ↳ app/controllers/operas_controller.rb:6:in `index'
+Completed 200 OK in 30ms (Views: 25.5ms | ActiveRecord: 0.6ms | Allocations: 7979)
+
+
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mOpera Create (0.7ms)[0m  [1m[32mINSERT INTO "operas" ("title", "director", "description", "img_src", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Tosca"], ["director", "David McVicar"], ["description", "a conservative and traditional staging produced by Peter Gelb after receiving criticism for Luc Bondy's stark staging having been 'gratuitously sordid' and 'messily conceptualized' (The NY Times)."], ["img_src", "https://static01.nyt.com/images/2017/12/31/arts/02tosca-review4/02tosca-review4-superJumbo.jpg?quality=90&auto=webp"], ["created_at", "2021-05-04 07:13:02.155711"], ["updated_at", "2021-05-04 07:13:02.155711"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/operas/" for ::1 at 2021-05-04 00:13:05 -0700
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by OperasController#index as HTML
+  [1m[36mOpera Load (0.2ms)[0m  [1m[34mSELECT "operas".* FROM "operas"[0m
+  ↳ app/controllers/operas_controller.rb:6:in `index'
+Completed 200 OK in 30ms (Views: 25.5ms | ActiveRecord: 0.7ms | Allocations: 8069)
+
+
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mOpera Create (0.4ms)[0m  [1m[32mINSERT INTO "operas" ("title", "director", "description", "img_src", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Turandot"], ["director", "Franco Zeffirelli"], ["description", "2015 revival of 1987 Zeffirelli production"], ["img_src", "https://static01.nyt.com/images/2015/09/25/arts/25TURANDOT/25TURANDOT-jumbo.jpg?quality=90&auto=webp"], ["created_at", "2021-05-04 07:15:26.110267"], ["updated_at", "2021-05-04 07:15:26.110267"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/operas/" for ::1 at 2021-05-04 00:15:33 -0700
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by OperasController#index as HTML
+  [1m[36mOpera Load (0.2ms)[0m  [1m[34mSELECT "operas".* FROM "operas"[0m
+  ↳ app/controllers/operas_controller.rb:6:in `index'
+Completed 200 OK in 11ms (Views: 7.1ms | ActiveRecord: 0.5ms | Allocations: 8143)
+
+
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mOpera Create (0.4ms)[0m  [1m[32mINSERT INTO "operas" ("title", "director", "description", "img_src", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Otello"], ["director", "Bartlett Sher"], ["description", "2015 premier of Sher's staging"], ["img_src", "https://static01.nyt.com/images/2015/09/13/arts/13TOMMASINI1/13TOMMASINI1-jumbo.jpg?quality=90&auto=webp"], ["created_at", "2021-05-04 07:17:31.591356"], ["updated_at", "2021-05-04 07:17:31.591356"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/operas/" for ::1 at 2021-05-04 00:17:35 -0700
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by OperasController#index as HTML
+  [1m[36mOpera Load (0.2ms)[0m  [1m[34mSELECT "operas".* FROM "operas"[0m
+  ↳ app/controllers/operas_controller.rb:6:in `index'
+Completed 200 OK in 29ms (Views: 11.2ms | ActiveRecord: 0.7ms | Allocations: 8299)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mOpera Load (0.2ms)[0m  [1m[34mSELECT "operas".* FROM "operas" WHERE "operas"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mOpera Load (0.4ms)[0m  [1m[34mSELECT "operas".* FROM "operas" WHERE "operas"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mOpera Update (1.0ms)[0m  [1m[33mUPDATE "operas" SET "description" = ?, "updated_at" = ? WHERE "operas"."id" = ?[0m  [["description", "2015 premiere of Sher's staging"], ["updated_at", "2021-05-04 07:18:50.961429"], ["id", 8]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/operas/" for ::1 at 2021-05-04 00:19:02 -0700
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by OperasController#index as HTML
+  [1m[36mOpera Load (0.1ms)[0m  [1m[34mSELECT "operas".* FROM "operas"[0m
+  ↳ app/controllers/operas_controller.rb:6:in `index'
+Completed 200 OK in 27ms (Views: 5.3ms | ActiveRecord: 0.5ms | Allocations: 8279)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mOpera Load (0.2ms)[0m  [1m[34mSELECT "operas".* FROM "operas" WHERE "operas"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mOpera Update (0.8ms)[0m  [1m[33mUPDATE "operas" SET "description" = ?, "updated_at" = ? WHERE "operas"."id" = ?[0m  [["description", "2019 revival of beloved 1981 Zeffirelli production. image courtesy NY Times"], ["updated_at", "2021-05-04 07:20:20.926162"], ["id", 3]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mOpera Load (0.3ms)[0m  [1m[34mSELECT "operas".* FROM "operas" WHERE "operas"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mOpera Load (0.3ms)[0m  [1m[34mSELECT "operas".* FROM "operas" WHERE "operas"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mOpera Update (0.5ms)[0m  [1m[33mUPDATE "operas" SET "description" = ?, "updated_at" = ? WHERE "operas"."id" = ?[0m  [["description", "2019 revival of beloved 1981 Zeffirelli production. Image courtesy of The NY Times"], ["updated_at", "2021-05-04 07:21:36.234766"], ["id", 4]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/operas/" for ::1 at 2021-05-04 00:21:41 -0700
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by OperasController#index as HTML
+  [1m[36mOpera Load (0.1ms)[0m  [1m[34mSELECT "operas".* FROM "operas"[0m
+  ↳ app/controllers/operas_controller.rb:6:in `index'
+Completed 200 OK in 10ms (Views: 5.6ms | ActiveRecord: 0.5ms | Allocations: 8278)
+
+
+Started GET "/operas" for 127.0.0.1 at 2021-05-04 16:25:17 -0700
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by OperasController#index as HTML
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.0ms | Allocations: 4340)
+
+
+  
+NameError (undefined local variable or method `opera' for #<OperasController:0x007faf37b515b0>
+Did you mean?  operas
+               open):
+  
+app/controllers/operas_controller.rb:8:in `index'
+Started GET "/favicon.ico" for 127.0.0.1 at 2021-05-04 16:25:18 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/operas" for 127.0.0.1 at 2021-05-04 16:25:31 -0700
+Processing by OperasController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/operas_controller.rb:8:in `index'
+  [1m[36mOpera Load (0.3ms)[0m  [1m[34mSELECT "operas".* FROM "operas"[0m
+  ↳ app/controllers/operas_controller.rb:8:in `index'
+Completed 200 OK in 19ms (Views: 17.4ms | ActiveRecord: 1.1ms | Allocations: 7145)
+
+
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mOpera Create (1.0ms)[0m  [1m[32mINSERT INTO "operas" ("title", "director", "description", "img_src", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Don Giovanni"], ["director", "Marcelo Lombardero"], ["description", "2020 premiere of new staging at Teatro Mayor"], ["img_src", "https://operawire.com/wp-content/uploads/2020/02/87797290_2730083613771778_5772014499078864896_o-1536x1025.jpg"], ["created_at", "2021-05-04 23:56:03.553422"], ["updated_at", "2021-05-04 23:56:03.553422"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/operas" for 127.0.0.1 at 2021-05-04 16:56:15 -0700
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by OperasController#index as HTML
+  [1m[36mOpera Load (0.2ms)[0m  [1m[34mSELECT "operas".* FROM "operas"[0m
+  ↳ app/controllers/operas_controller.rb:10:in `index'
+Completed 200 OK in 17ms (Views: 5.1ms | ActiveRecord: 0.5ms | Allocations: 10043)
+
+
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mOpera Create (0.9ms)[0m  [1m[32mINSERT INTO "operas" ("title", "director", "description", "img_src", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Lucia di Lammermoor"], ["director", "Barbara Wysocka"], ["description", "Bayeriche Staatsoper revival of Wysocka's staging"], ["img_src", "https://bachtrack.com/files/82973-lucia-di-lammermoor--v--gimadieva-c-w--hosl-9c2a6914.jpg"], ["created_at", "2021-05-05 00:09:41.590589"], ["updated_at", "2021-05-05 00:09:41.590589"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/operas" for 127.0.0.1 at 2021-05-04 17:10:11 -0700
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by OperasController#index as HTML
+  [1m[36mOpera Load (0.2ms)[0m  [1m[34mSELECT "operas".* FROM "operas"[0m
+  ↳ app/controllers/operas_controller.rb:10:in `index'
+Completed 200 OK in 36ms (Views: 24.9ms | ActiveRecord: 0.6ms | Allocations: 10174)
+
+
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mOpera Load (0.3ms)[0m  [1m[34mSELECT "operas".* FROM "operas" WHERE "operas"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mOpera Update (1.3ms)[0m  [1m[33mUPDATE "operas" SET "description" = ?, "updated_at" = ? WHERE "operas"."id" = ?[0m  [["description", "2019 revival of beloved 1981 Zeffirelli production"], ["updated_at", "2021-05-05 00:14:07.252977"], ["id", 3]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mOpera Load (0.3ms)[0m  [1m[34mSELECT "operas".* FROM "operas" WHERE "operas"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mOpera Update (0.5ms)[0m  [1m[33mUPDATE "operas" SET "description" = ?, "updated_at" = ? WHERE "operas"."id" = ?[0m  [["description", "2019 revival of beloved 1981 Zeffirelli production"], ["updated_at", "2021-05-05 00:15:06.785511"], ["id", 4]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mOpera Load (0.3ms)[0m  [1m[34mSELECT "operas".* FROM "operas" WHERE "operas"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mOpera Update (0.9ms)[0m  [1m[33mUPDATE "operas" SET "description" = ?, "updated_at" = ? WHERE "operas"."id" = ?[0m  [["description", "a conservative and traditional revival of McVicar's staging"], ["updated_at", "2021-05-05 00:16:10.368146"], ["id", 5]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mOpera Load (0.3ms)[0m  [1m[34mSELECT "operas".* FROM "operas" WHERE "operas"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mOpera Update (0.7ms)[0m  [1m[33mUPDATE "operas" SET "description" = ?, "updated_at" = ? WHERE "operas"."id" = ?[0m  [["description", "a conservative and traditional revival of McVicar's staging"], ["updated_at", "2021-05-05 00:17:23.453360"], ["id", 6]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mOpera Create (1.0ms)[0m  [1m[32mINSERT INTO "operas" ("title", "director", "description", "img_src", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Benvenuto Cellini"], ["director", "Terry Gilliam"], ["description", "2015 staging at the Liceu"], ["img_src", "https://seenandheard-international.com/wp-content/uploads/2015/11/Cellini.jpg"], ["created_at", "2021-05-05 00:25:06.317610"], ["updated_at", "2021-05-05 00:25:06.317610"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mOpera Create (0.5ms)[0m  [1m[32mINSERT INTO "operas" ("title", "director", "description", "img_src", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "La Damnation de Faust"], ["director", "Terry Gilliam"], ["description", "2017 revival at the Staatsoper"], ["img_src", "https://bachtrack.com/wfiles/60679-damnation-de-faust-florian-boesch--mephistopheles---charles-castronovo--faust--c-matthias-baus-resized.webp"], ["created_at", "2021-05-05 00:27:29.896525"], ["updated_at", "2021-05-05 00:27:29.896525"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/operas" for 127.0.0.1 at 2021-05-04 17:27:52 -0700
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by OperasController#index as HTML
+  [1m[36mOpera Load (0.2ms)[0m  [1m[34mSELECT "operas".* FROM "operas"[0m
+  ↳ app/controllers/operas_controller.rb:10:in `index'
+Completed 200 OK in 15ms (Views: 5.3ms | ActiveRecord: 0.5ms | Allocations: 10468)
+
+
