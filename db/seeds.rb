@@ -27,30 +27,35 @@ Opera.create([
     # director: "David McVicar",
     # description: "a conservative and traditional staging",
     # img_src: "https://static01.nyt.com/images/2017/12/31/arts/02tosca-review4/02tosca-review4-superJumbo.jpg?quality=90&auto=webp",
-    # }
+    # },
     #  { title: "Turandot",
     # director: "Franco Zeffirelli",
     # description: "2015 revival of 1987 Zeffirelli production",
     # img_src: "https://static01.nyt.com/images/2015/09/25/arts/25TURANDOT/25TURANDOT-jumbo.jpg?quality=90&auto=webp",
-    # }
+    # },
     # { title: "Otello",
     # director: "Bartlett Sher",
     # description: "2015 premiere of Sher's staging",
     # img_src: "https://static01.nyt.com/images/2015/09/13/arts/13TOMMASINI1/13TOMMASINI1-jumbo.jpg?quality=90&auto=webp",
-    # }
+    # },
     # { title: "Don Giovanni",
     # director: "Marcelo Lombardero",
     # description: "2020 premiere of new staging at Teatro Mayor",
     # img_src: "https://operawire.com/wp-content/uploads/2020/02/87797290_2730083613771778_5772014499078864896_o-1536x1025.jpg",
-    # }
+    # },
     # { title: "Giulio Cesare".
     # director: "Robert Carsen",
     # description: "2019 La Scala premiere of Carsen's staging - the first staging of Giulio Cesare at La Scala since 1956",
     # img_src: "https://operawire.com/wp-content/uploads/2019/10/197_K65A1517-1400x769.jpg", 
-    # }
+    # },
     # { title: "Lucia di Lammermoor",
     # director: "Barbara Wysocka",
     # description: "Bayeriche Staatsoper revival of Wysocka's staging",
     # img_src: "https://bachtrack.com/files/82973-lucia-di-lammermoor--v--gimadieva-c-w--hosl-9c2a6914.jpg",
-    # }
+    # },
+    { title: "Benvenuto Cellini",
+    director: "Terry Gilliam",
+    description: "2015 staging at the Liceu",
+    img_src: "https://seenandheard-international.com/wp-content/uploads/2015/11/Cellini.jpg"
+    },
 ])
