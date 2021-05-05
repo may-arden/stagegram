@@ -53,9 +53,14 @@ Opera.create([
     # description: "Bayeriche Staatsoper revival of Wysocka's staging",
     # img_src: "https://bachtrack.com/files/82973-lucia-di-lammermoor--v--gimadieva-c-w--hosl-9c2a6914.jpg",
     # },
-    { title: "Benvenuto Cellini",
-    director: "Terry Gilliam",
-    description: "2015 staging at the Liceu",
-    img_src: "https://seenandheard-international.com/wp-content/uploads/2015/11/Cellini.jpg"
-    },
+    # { title: "Benvenuto Cellini",
+    # director: "Terry Gilliam",
+    # description: "2015 staging at the Liceu",
+    # img_src: "https://seenandheard-international.com/wp-content/uploads/2015/11/Cellini.jpg"
+    # },
+    # { title: "La Damnation de Faust",
+    # director: "Terry Gilliam",
+    # description: "2017 revival at the Staatsoper",
+    # img_src: "https://bachtrack.com/wfiles/60679-damnation-de-faust-florian-boesch--mephistopheles---charles-castronovo--faust--c-matthias-baus-resized.webp",
+    # },
 ])
