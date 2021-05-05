@@ -43,9 +43,14 @@ Opera.create([
     # description: "2020 premiere of new staging at Teatro Mayor",
     # img_src: "https://operawire.com/wp-content/uploads/2020/02/87797290_2730083613771778_5772014499078864896_o-1536x1025.jpg",
     # }
-    { title: "Giulio Cesare".
-    director: "Robert Carsen",
-    description: "2019 La Scala premiere of Carsen's staging - the first staging of Giulio Cesare at La Scala since 1956",
-    img_src: "https://operawire.com/wp-content/uploads/2019/10/197_K65A1517-1400x769.jpg", 
-    }
+    # { title: "Giulio Cesare".
+    # director: "Robert Carsen",
+    # description: "2019 La Scala premiere of Carsen's staging - the first staging of Giulio Cesare at La Scala since 1956",
+    # img_src: "https://operawire.com/wp-content/uploads/2019/10/197_K65A1517-1400x769.jpg", 
+    # }
+    # { title: "Lucia di Lammermoor",
+    # director: "Barbara Wysocka",
+    # description: "Bayeriche Staatsoper revival of Wysocka's staging",
+    # img_src: "https://bachtrack.com/files/82973-lucia-di-lammermoor--v--gimadieva-c-w--hosl-9c2a6914.jpg",
+    # }
 ])
