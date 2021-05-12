@@ -27,6 +27,27 @@ class Opera {
         Opera.all.push(this)
         }
 
+        static makeCheckList() {
+            this.all.forEach(opera => opera.makeOperaCheckBox())
+        }
+
+        static removeCheckList() {
+            this.all.forEach(opera => opera.removePlantCheckBox())
+        }
+
+        static appendOperas() {
+            this.all.forEach(opera => opera.renderOpera(checkBoxOperaDiv))
+        }
+
+        makeOperaCheckBox() {
+            let div = document.createElement('div')
+            div.innerHTML = `<div class="check-box-div"><input type="checkbox" id="${this.id}" name="opera_ids" value="${this.id}"></div>`
+            this.element.appendChild(div)
+        }
+        removeOperaCheckBox() {
+            let div = document.querySelector(".check-box-div")
+            div.remove()
+        }
 
 };
 
