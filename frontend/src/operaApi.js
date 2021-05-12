@@ -3,7 +3,7 @@ const directorInput = document.querySelector('#opera-director')
 const descriptionInput = document.querySelector('#opera-description')
 const imgSrcInput = document.querySelector('#opera-img-src')
 
-class PlantApi {
+class OperaApi {
 
     constructor(port) {
         this.baseUrl = `${port}/operas`
@@ -29,6 +29,19 @@ class PlantApi {
         .then (json => {
             const o = new Opera(json)
         })
-
     }
+    
+        getOperas(num) {
+            fetch(this.baseUrl)
+            .then(r => r.json())
+            .then(data => {
+                data.slice(0, num).forEach(element => {
+                    const o = new OperaCard(element)
+                    const c = new OperaCard(element)
+                })
+            OperaCard.appendsCards()
+            })
+
+            
+        }
 }
