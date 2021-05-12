@@ -2,12 +2,8 @@ class OperasController < ApplicationController
 
     # GET /operas
     def index
-        # CODE THAT DOES NOT USE 'FAST_JSONAPI' GEM
         @operas = Opera.all 
         render json: @operas, except: [:created_at, :updated_at]
-        # CODE TO REFLECT 'FAST_JSONAPI' 
-        # operas = Opera.all 
-        # render json: OperaSerializer.new(operas)
     end 
 
 
