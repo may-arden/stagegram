@@ -2,7 +2,7 @@ class Opera {
 
     static all = [] 
 
-    constructor({title, director, description}){
+    constructor({title, director, description, img_src}){
         this.title = title
         this.director = director
         this.description = description
@@ -26,5 +26,7 @@ class Opera {
         this.element.appendChild(this.back)
         Opera.all.push(this)
         }
+
+
 };
 

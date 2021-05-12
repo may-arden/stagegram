@@ -18,7 +18,7 @@
 
   <div style="width: 100%">
     <div style="width: 50%">
-    <div class="container" id="create-opera-form">
+    <div class="container" id="create-opera-form" hidden >
         <h1>please add an opera production to stagegram</h1>
         <p>add information below</p>
         <form id="add-opera-form" class="form-control">
@@ -30,15 +30,15 @@
         </form>
     </div>
 
-    <div class="collection-form-container" id="collection-form-container">
+    <div class="collection-form-container" id="collection-form-container" hidden >
         <form id="collection-form" class="form-control">
             <input type="text" class="input" name="collection-name" id="collection-name" placeholder="name your collection">
             <input type="text" class="input" name="collection-user" id="collection-user" placeholder="your name"><br>
             <label for="opera-list" id="checkbox-opera-list"
-                <div class="wrapper" id="checkbox-opera-list"> 
+                <div class="wrapper" id="checkbox-opera-list" > 
                     <!--render list of checkboxes here-->
                 </div>
-            <input type="submit" value="create" class="button"> 
+            <input type="submit" value="create" class="button" hidden> 
         </form>
     </div>
     </div>
