@@ -22,19 +22,21 @@ class OperasController < ApplicationController
         else 
             render json: @opera.errors 
         end 
-
-        def update
-            if @opera.update(opera_params)
-                render json: @opera 
-            else  
-                render json: @opera.errors, status :unprocessable_entity 
-        end
-
-        def destroy 
-            @opera.destroy 
-        end 
-
     end 
+
+    def update
+        if @opera.update(opera_params)
+            render json: @opera 
+        else  
+            render json: @opera.errors, status: :unprocessable_entity 
+        end 
+    end
+
+    def destroy 
+        @opera.destroy 
+    end 
+
+     
 
     #
 

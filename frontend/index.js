@@ -18,7 +18,9 @@ const collectionForm = document.getElementById("collection-form")
 const checkBoxOperaDiv = document.getElementById("checkbox-opera-list") 
 const collectionBtnDiv = document.getElementById("collection-buttons")
 
-// add opera form
+addOperaForm.addEventListener("submit", handleNewOperaSubmit) 
+
+// add opera form visibility 
 let addOpera = false
 addOperaShowFormBtn.addEventListener("click", () => {
     addOpera = !addOpera;
@@ -32,7 +34,7 @@ addOperaShowFormBtn.addEventListener("click", () => {
 });
 
 
-// opera image grid and collection submission form
+// opera image grid and collection submission form visibility 
 let showCollectionForm = false
 let check = true 
 makeCollectionBtn.addEventListener("click", () => {
@@ -50,6 +52,17 @@ makeCollectionBtn.addEventListener("click", () => {
     }
     check = false 
     })
+
+    // persist new opera to database 
+    function handleNewOperaSubmit (e) {
+        e.preventDefault() 
+        operaApi.createOpera() 
+        e.target.reset() 
+        alert("opera successfully created :)")
+        addOpera = false 
+        addOperaShowFormBtn.innerText = "add an opera";
+        operaFormContainer.style.display = "none";
+    }
 
 operaApi.getCheckListOperas() 
 operaApi.getPlants()
