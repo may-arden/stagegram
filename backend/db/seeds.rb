@@ -10,8 +10,8 @@ Opera.create([
     # { title: "La Boheme", 
     # director: "Franco Zeffirelli", 
     # description: "2019 revival of beloved 1981 Zeffirelli production", 
-    # img_src: "https://static01.nyt.com/images/2019/10/31/arts/27boheme3/27boheme3-jumbo.jpg?quality=90&auto=webp"
-    # },
+    # img_src: "https://static01.nyt.com/images/2019/10/31/arts/27boheme3/27boheme3-jumbo.jpg"
+    # }
     # { title: "La Boheme",
     # director: "Franco Zeffirelli",
     # description: "2019 revival of beloved 1981 Zeffirelli production",
@@ -63,4 +63,9 @@ Opera.create([
     # description: "2017 revival at the Staatsoper",
     # img_src: "https://bachtrack.com/wfiles/60679-damnation-de-faust-florian-boesch--mephistopheles---charles-castronovo--faust--c-matthias-baus-resized.webp",
     # },
+    # {title: "Pelleas et Melisande",
+    # director: "Jonathan Miller",
+    # description: "2019 revival of 1995 production which metaphorically sets the story of an ill-fated family in a Gothic 19-th century castle where outdoor forests and chalky inner sanctums seem to merge - (NYTimes).",
+    # img_src: "https://static01.nyt.com/images/2019/01/17/arts/17pelleas/merlin_149270280_31f9f9f1-a299-4f9f-bdb0-181815c6c6b8-superJumbo.jpg",
+    # }
 ])

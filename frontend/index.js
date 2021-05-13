@@ -32,7 +32,7 @@ makeCollectionBtn.addEventListener("click", () => {
     }else {
         Opera.removeCheckList()
         collectionFormContainer.hidden = true;
-        checkBoxOperaDiv.innterHTML = "";
+        checkBoxOperaDiv.innerHTML = "";
         makeCollectionBtn.innerText = "make a collection";
     }
     check = false 

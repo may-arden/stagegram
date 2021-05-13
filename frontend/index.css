@@ -3,3 +3,23 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Geneva", sans-serif;}
 body, html {
     background-color: rgb(255,209,220);
 }
+
+img {
+    height: auto;
+    width: 260px 
+}
+.box {
+  background: rgb(255, 215, 129);
+  padding: 0;
+}
+
+
+
+.wrapper {
+    display: grid;
+    text-align: center;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 6px;
+    grid-row-gap: 6px;
+    grid-auto-rows: minmax(100px, auto);
+}
