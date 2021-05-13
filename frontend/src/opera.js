@@ -32,7 +32,7 @@ class Opera {
         }
 
         static removeCheckList() {
-            this.all.forEach(opera => opera.removePlantCheckBox())
+            this.all.forEach(opera => opera.removeOperaCheckBox())
         }
 
         static appendOperas() {
@@ -41,7 +41,7 @@ class Opera {
 
         makeOperaCheckBox() {
             let div = document.createElement('div')
-            div.innerHTML = `<div class="check-box-div"><input type="checkbox" id="${this.id}" name="opera_id" value="${this.id}"></div>`
+            div.innerHTML = `<div class="check-box-div"><input type="checkbox" id="${this.id}" name="opera_ids" value="${this.id}"></div>`
             this.element.appendChild(div)
         }
         removeOperaCheckBox() {
@@ -52,6 +52,7 @@ class Opera {
         renderOpera(htmlElement) {
             htmlElement.appendChild(this.element)
         }
+
 
         displayBack = (e) => {
             e.front.hidden = true
