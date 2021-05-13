@@ -11,5 +11,25 @@ const addOperaShowFormBtn = document.querySelector("#add-opera-form-btn")
 const operaFormContainer = document.querySelector("#create-opera-form")
 const addOperaForm = document.getElementById("add-opera-form")
 
+const checkBoxOperaDiv = document.getElementById("checkbox-opera-list") 
+const collectionBtnDiv = document.getElementById("collection-btn-div")
+
+let showCollectionForm = false
+let check = true 
+makeCollectionBtn.addEventListener("click", () => {
+    showCollectionForm = !showCollectionForm;
+    if (showCollectionForm) {
+      collectionFormContainer.hidden = false; 
+        Opera.makeCheckList()
+        Opera.appendOperas();
+    }else {
+        Opera.removeCheckList()
+        collectionFormContainer.hidden = true;
+        checkBoxOperaDiv.innterHTML = "";
+        makeCollectionBtn.innterHTML = "make a collection";
+        
+    }
+    check = false 
+    }) 
 
 

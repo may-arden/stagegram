@@ -41,7 +41,15 @@ class OperaApi {
                 })
             OperaCard.appendsCards()
             })
+        }
 
-            
+        getCheckListOperas() {
+            fetch(this.baseUrl)
+                .then(r => r.json())
+                    .then(data => {
+                        data.forEach(element => {
+                            let o = new Opera(element)
+                        })
+                    })
         }
 }
