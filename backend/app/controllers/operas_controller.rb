@@ -30,6 +30,10 @@ class OperasController < ApplicationController
                 render json: @opera.errors, status :unprocessable_entity 
         end
 
+        def destroy 
+            @opera.destroy 
+        end 
+
     end 
 
     #
