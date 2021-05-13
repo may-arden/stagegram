@@ -562,3 +562,12 @@ Processing by OperasController#index as HTML
 Completed 200 OK in 22ms (Views: 6.5ms | ActiveRecord: 1.1ms | Allocations: 10301)
 
 
+Started GET "/operas" for 127.0.0.1 at 2021-05-12 18:33:17 -0700
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by OperasController#index as */*
+  [1m[36mOpera Load (0.4ms)[0m  [1m[34mSELECT "operas".* FROM "operas"[0m
+  ↳ app/controllers/operas_controller.rb:6:in `index'
+Completed 200 OK in 36ms (Views: 23.9ms | ActiveRecord: 0.8ms | Allocations: 10257)
+
+

@@ -1,7 +1,7 @@
-const titleInput = document.querySelector('#opera-title')
-const directorInput = document.querySelector('#opera-director')
-const descriptionInput = document.querySelector('#opera-description')
-const imgSrcInput = document.querySelector('#opera-img-src')
+const titleInput = document.querySelector("#opera-title")
+const directorInput = document.querySelector("#opera-director")
+const descriptionInput = document.querySelector("#opera-description")
+const imgSrcInput = document.querySelector("#opera-img-src")
 
 class OperaApi {
 
@@ -19,7 +19,7 @@ class OperaApi {
         const configObj = {
             method: 'POST',
             headers: {
-                "Content-Type" : "application/json",
+                "Content-Type": "application/json",
                 Accept: "application/json"
             },
             body: JSON.stringify(operaInfo)

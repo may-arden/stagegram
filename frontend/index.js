@@ -1,4 +1,4 @@
-const port = 'http://localhost:3000/operas'
+const port = "http://127.0.0.1:3000"
 const operaApi = new OperaApi(port)
 
 // navigation buttons
@@ -33,6 +33,8 @@ makeCollectionBtn.addEventListener("click", () => {
         makeCollectionBtn.innerText = "make a collection";
     }
     check = false 
-    }) 
+    })
+
+operaApi.getCheckListOperas() 
 
 
