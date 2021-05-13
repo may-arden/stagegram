@@ -2,7 +2,8 @@ class Opera {
 
     static all = [] 
 
-    constructor({title, director, description, img_src}){
+    constructor({id, title, director, description, img_src}){
+        this.id = id 
         this.title = title
         this.director = director
         this.description = description
@@ -47,6 +48,10 @@ class Opera {
         removeOperaCheckBox() {
             let div = document.querySelector(".check-box-div")
             div.remove()
+        }
+
+        appendChecklist() {
+            checkBoxOperaDiv.appendChild(this.element)
         }
 
         renderOpera(htmlElement) {

@@ -1,4 +1,5 @@
 class OperasController < ApplicationController
+    before_action :set_opera, only: [:show, :update, :destroy]
 
     # GET /operas
     def index
