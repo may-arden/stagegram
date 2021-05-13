@@ -1,16 +1,26 @@
-body,h1,h2,h3,h4,h5,h6 {font-family: "Geneva", sans-serif;}
+body,h1,h2,h3,h4,h5,h6 {font-family: "Times New Roman", times new roman;}
 
 body, html {
     background-color: rgb(255,209,220);
 }
 
 .box {
-  background: rgb(255, 215, 129);
+  background: rgb(250, 225, 231);
   padding: 0;
 }
 
+ .button {
+	/* background-color: 250, 225, 231; */
+	/* font-family: 'Geneva', sans-serif; */
+    font-family: 'Times New Roman', times new roman; 
+	font-size: 15px;
+	font-weight: normal;
+	/* padding: 10px; */
+	text-decoration:none;
+} 
+
 .input {
-	font-family:"Geneva", sans-serif;
+	font-family:"Times New Roman", times new roman;
 	/* padding:13px 32px; */
 	text-decoration:none;
 }
@@ -44,4 +54,9 @@ nav {
     grid-column-gap: 6px;
     grid-row-gap: 6px;
     grid-auto-rows: minmax(100px, auto);
+}
+
+button {
+    font-family:"Times New Roman", times new roman;
+    font-size: 15px;
 }
