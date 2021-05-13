@@ -41,12 +41,26 @@ class Opera {
 
         makeOperaCheckBox() {
             let div = document.createElement('div')
-            div.innerHTML = `<div class="check-box-div"><input type="checkbox" id="${this.id}" name="opera_ids" value="${this.id}"></div>`
+            div.innerHTML = `<div class="check-box-div"><input type="checkbox" id="${this.id}" name="opera_id" value="${this.id}"></div>`
             this.element.appendChild(div)
         }
         removeOperaCheckBox() {
             let div = document.querySelector(".check-box-div")
             div.remove()
+        }
+
+        renderOpera(htmlElement) {
+            htmlElement.appendChild(this.element)
+        }
+
+        displayBack = (e) => {
+            e.front.hidden = true
+            e.back.hidden = false 
+        }
+
+        displayFront = (e) => {
+            e.front.hidden = false 
+            e.back.hidden = true 
         }
 
 };

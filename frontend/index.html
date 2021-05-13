@@ -49,6 +49,24 @@
         <!-- opera collections render here -->
     </div>
 
+    
+    <script> 
+    function fetchOperaData() {
+        fetch("http://localhost:3000/operas")
+            .then(resp => resp.json())
+                .then (data => parseOperaApi(data))
+    }
+    function parseOperaApi(data) {
+        data.forEach(opera => createOperaCard(opera))
+    }
+    function createOperaCard(opera) {
+        const checkboxOperaDiv = document.getElementById("checkbox-opera-list")
+
+
+    }
+
+        </script>
+
 
 
     <script src="./src/opera.js"></script>
