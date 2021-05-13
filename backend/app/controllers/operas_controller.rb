@@ -23,6 +23,13 @@ class OperasController < ApplicationController
             render json: @opera.errors 
         end 
 
+        def update
+            if @opera.update(opera_params)
+                render json: @opera 
+            else  
+                render json: @opera.errors, status :unprocessable_entity 
+        end
+
     end 
 
     #

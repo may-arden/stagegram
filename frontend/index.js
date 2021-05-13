@@ -18,8 +18,21 @@ const collectionForm = document.getElementById("collection-form")
 const checkBoxOperaDiv = document.getElementById("checkbox-opera-list") 
 const collectionBtnDiv = document.getElementById("collection-buttons")
 
+// add opera form
+let addOpera = false
+addOperaShowFormBtn.addEventListener("click", () => {
+    addOpera = !addOpera;
+    if (addOpera) {
+        addOperaShowFormBtn.innerText = "nevermind";
+        operaFormContainer.style.display = "block"; 
+    }else { 
+        addOperaShowFormBtn.innerText = "add an opera";
+        operaFormContainer.style.display = "none"; 
+    }
+});
 
 
+// opera image grid and collection submission form
 let showCollectionForm = false
 let check = true 
 makeCollectionBtn.addEventListener("click", () => {
