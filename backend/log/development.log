@@ -1629,3 +1629,71 @@ Completed 200 OK in 6ms (Views: 5.6ms | ActiveRecord: 0.2ms | Allocations: 2172)
   [1m[36mCollection Update (0.5ms)[0m  [1m[33mUPDATE "collections" SET "user" = ?, "updated_at" = ? WHERE "collections"."id" = ?[0m  [["user", "MayMay"], ["updated_at", "2021-05-13 20:10:19.706537"], ["id", 1]]
   [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
   [1m[36mCollection Load (0.3ms)[0m  [1m[34mSELECT "collections".* FROM "collections" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mOperaCollection Load (0.3ms)[0m  [1m[34mSELECT "opera_collections".* FROM "opera_collections" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+Started POST "/operas" for 127.0.0.1 at 2021-05-13 13:24:36 -0700
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by OperasController#create as JSON
+  Parameters: {"title"=>"Don Giovanni", "director"=>"Christopher Alden", "description"=>"Los Angeles Philharmonic staging of production with set design by Frank Gehry ", "img_src"=>"https://static.dezeen.com/uploads/2012/07/dezeen_Don-Giovanni-set-design-by-Frank-Gehry_4.jpg", "opera"=>{"title"=>"Don Giovanni", "director"=>"Christopher Alden", "description"=>"Los Angeles Philharmonic staging of production with set design by Frank Gehry ", "img_src"=>"https://static.dezeen.com/uploads/2012/07/dezeen_Don-Giovanni-set-design-by-Frank-Gehry_4.jpg"}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/operas_controller.rb:20:in `create'
+  [1m[36mOpera Create (1.1ms)[0m  [1m[32mINSERT INTO "operas" ("title", "director", "description", "img_src", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Don Giovanni"], ["director", "Christopher Alden"], ["description", "Los Angeles Philharmonic staging of production with set design by Frank Gehry "], ["img_src", "https://static.dezeen.com/uploads/2012/07/dezeen_Don-Giovanni-set-design-by-Frank-Gehry_4.jpg"], ["created_at", "2021-05-13 20:24:36.890297"], ["updated_at", "2021-05-13 20:24:36.890297"]]
+  ↳ app/controllers/operas_controller.rb:20:in `create'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/operas_controller.rb:20:in `create'
+Completed 200 OK in 12ms (Views: 0.3ms | ActiveRecord: 2.8ms | Allocations: 5033)
+
+
+Started GET "/operas" for 127.0.0.1 at 2021-05-13 13:25:07 -0700
+Processing by OperasController#index as */*
+  [1m[36mOpera Load (0.2ms)[0m  [1m[34mSELECT "operas".* FROM "operas"[0m
+  ↳ app/controllers/operas_controller.rb:7:in `index'
+Completed 200 OK in 4ms (Views: 3.7ms | ActiveRecord: 0.2ms | Allocations: 2325)
+
+
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mOpera Create (0.5ms)[0m  [1m[32mINSERT INTO "operas" ("title", "director", "description", "img_src", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Don Giovanni"], ["director", "Chrispher Alden"], ["description", "LA Philharmonic production with set design by Frank Gehry"], ["img_src", "https://static.dezeen.com/uploads/2012/07/dezeen_Don-Giovanni-set-design-by-Frank-Gehry_1.jpg"], ["created_at", "2021-05-13 20:40:28.599934"], ["updated_at", "2021-05-13 20:40:28.599934"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mOpera Create (0.3ms)[0m  [1m[32mINSERT INTO "operas" ("title", "director", "description", "img_src", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Pelleas et Melisande"], ["director", "Stephane Braunschweig"], ["description", "2010 staging at the Opera Comique in Paris"], ["img_src", "https://www.opera-comique.com/sites/TNOC/files/styles/large/public/uploads/images/galerie/131-035-bd-drelisabethcarecchio.jpg?itok=mnyy4Xqp"], ["created_at", "2021-05-13 20:40:28.604779"], ["updated_at", "2021-05-13 20:40:28.604779"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mOpera Create (0.2ms)[0m  [1m[32mINSERT INTO "operas" ("title", "director", "description", "img_src", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Les Dialogues des Carmelites"], ["director", "John Dexter"], ["description", "modern day staging by Dexter at the Met Opera"], ["img_src", "https://static01.nyt.com/images/2011/11/27/arts/27TOMMASINI4/27JPTOMMASINI4-jumbo.jpg?quality=90&auto=webp"], ["created_at", "2021-05-13 20:40:28.608384"], ["updated_at", "2021-05-13 20:40:28.608384"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/operas" for 127.0.0.1 at 2021-05-13 13:40:35 -0700
+Processing by OperasController#index as */*
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/operas_controller.rb:7:in `index'
+  [1m[36mOpera Load (0.3ms)[0m  [1m[34mSELECT "operas".* FROM "operas"[0m
+  ↳ app/controllers/operas_controller.rb:7:in `index'
+Completed 200 OK in 5ms (Views: 4.6ms | ActiveRecord: 0.6ms | Allocations: 3238)
+
+
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mOpera Create (0.4ms)[0m  [1m[32mINSERT INTO "operas" ("title", "director", "description", "img_src", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Don Giovanni"], ["director", "Chrispher Alden"], ["description", "LA Philharmonic production with set design by Frank Gehry"], ["img_src", "https://static.dezeen.com/uploads/2012/07/dezeen_Don-Giovanni-set-design-by-Frank-Gehry_1.jpg"], ["created_at", "2021-05-13 20:43:30.853043"], ["updated_at", "2021-05-13 20:43:30.853043"]]
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mOpera Create (0.3ms)[0m  [1m[32mINSERT INTO "operas" ("title", "director", "description", "img_src", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Pelleas et Melisande"], ["director", "Stephane Braunschweig"], ["description", "2010 staging at the Opera Comique in Paris"], ["img_src", "https://www.opera-comique.com/sites/TNOC/files/styles/large/public/uploads/images/galerie/131-035-bd-drelisabethcarecchio.jpg?itok=mnyy4Xqp"], ["created_at", "2021-05-13 20:43:30.858434"], ["updated_at", "2021-05-13 20:43:30.858434"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mOpera Create (0.3ms)[0m  [1m[32mINSERT INTO "operas" ("title", "director", "description", "img_src", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Les Dialogues des Carmelites"], ["director", "John Dexter"], ["description", "modern day staging by Dexter at the Met Opera"], ["img_src", "https://static01.nyt.com/images/2011/11/27/arts/27TOMMASINI4/27JPTOMMASINI4-jumbo.jpg?quality=90&auto=webp"], ["created_at", "2021-05-13 20:43:30.862291"], ["updated_at", "2021-05-13 20:43:30.862291"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCollection Create (0.3ms)[0m  [1m[32mINSERT INTO "collections" ("name", "user", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "avant-garde"], ["user", "May"], ["created_at", "2021-05-13 20:43:30.928686"], ["updated_at", "2021-05-13 20:43:30.928686"]]
+  [1m[36mOperaCollection Create (0.1ms)[0m  [1m[32mINSERT INTO "opera_collections" ("opera_id", "collection_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["opera_id", 20], ["collection_id", 2], ["created_at", "2021-05-13 20:43:30.930938"], ["updated_at", "2021-05-13 20:43:30.930938"]]
+  [1m[36mOperaCollection Create (0.0ms)[0m  [1m[32mINSERT INTO "opera_collections" ("opera_id", "collection_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["opera_id", 21], ["collection_id", 2], ["created_at", "2021-05-13 20:43:30.931935"], ["updated_at", "2021-05-13 20:43:30.931935"]]
+  [1m[36mOperaCollection Create (0.0ms)[0m  [1m[32mINSERT INTO "opera_collections" ("opera_id", "collection_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["opera_id", 22], ["collection_id", 2], ["created_at", "2021-05-13 20:43:30.932746"], ["updated_at", "2021-05-13 20:43:30.932746"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/operas" for 127.0.0.1 at 2021-05-13 13:43:57 -0700
+Processing by OperasController#index as */*
+  [1m[36mOpera Load (0.2ms)[0m  [1m[34mSELECT "operas".* FROM "operas"[0m
+  ↳ app/controllers/operas_controller.rb:7:in `index'
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.2ms | Allocations: 3020)
+
+

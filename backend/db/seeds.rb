@@ -69,3 +69,25 @@ Opera.create([
     # img_src: "https://static01.nyt.com/images/2019/01/17/arts/17pelleas/merlin_149270280_31f9f9f1-a299-4f9f-bdb0-181815c6c6b8-superJumbo.jpg",
     # }
 ])
+
+avant_garde = Opera.create([ 
+    {title: "Don Giovanni",
+    director: "Chrispher Alden",
+    description: "LA Philharmonic production with set design by Frank Gehry",
+    img_src: "https://static.dezeen.com/uploads/2012/07/dezeen_Don-Giovanni-set-design-by-Frank-Gehry_1.jpg"
+    },
+    {title: "Pelleas et Melisande", 
+    director: "Stephane Braunschweig",
+    description: "2010 staging at the Opera Comique in Paris",
+    img_src: "https://www.opera-comique.com/sites/TNOC/files/styles/large/public/uploads/images/galerie/131-035-bd-drelisabethcarecchio.jpg?itok=mnyy4Xqp"
+    },
+    {title: "Les Dialogues des Carmelites", 
+    director: "John Dexter",
+    description: "modern day staging by Dexter at the Met Opera",
+    img_src: "https://static01.nyt.com/images/2011/11/27/arts/27TOMMASINI4/27JPTOMMASINI4-jumbo.jpg?quality=90&auto=webp"
+    },
+])
+
+Collection.create([
+    {name: "avant-garde", user: "May", operas: avant_garde}
+])
