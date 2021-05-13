@@ -14,7 +14,7 @@
         <button type="button" id="make-collection-button">make a collection</button>
     </nav>
 
-    <div id="collection-buttons" > </div>
+    <div id="collection-buttons"  
  
   <div style="width: 100%">
     <div style="width: 50%">
@@ -48,31 +48,14 @@
     <div class="collection-form-control" id="opera-collection">
         <!-- opera collections render here -->
     </div>
-
-    
-    <script> 
-    function fetchOperaData() {
-        fetch("http://localhost:3000/operas")
-            .then(resp => resp.json())
-                .then (data => parseOperaApi(data))
-    }
-    function parseOperaApi(data) {
-        data.forEach(opera => createOperaCard(opera))
-    }
-    function createOperaCard(opera) {
-        const checkboxOperaDiv = document.getElementById("checkbox-opera-list")
-
-
-    }
-
-        </script>
+</div>
 
 
 
-    <script src="./src/opera.js"></script>
     <script src="./src/operaApi.js"></script>
-    <script src="./src/collection.js"></script>
+    <script src="./src/opera.js"></script>
     <script src="./src/collectionApi.js"></script>
+    <script src="./src/collection.js"></script>
     <script src="./index.js"></script>
 </body>
 

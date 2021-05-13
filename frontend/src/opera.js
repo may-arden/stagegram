@@ -19,7 +19,7 @@ class Opera {
         this.back = document.createElement('div')
         this.back.id = `back-${this.id}`
         this.back.hidden = true 
-        this.back.innerHTML = ` <h3 class="director">${this.director}</h3>
+        this.back.innerHTML = `<h3 class="director">${this.director}</h3>
                                 <p class="description" id="opera-${this.id}">${this.description}</p>`
         this.front.addEventListener('mouseover', (e) => this.displayBack(this))
         this.back.addEventListener('mouseover', (e) => this.displayFront(this))
@@ -69,5 +69,5 @@ class Opera {
             e.back.hidden = true 
         }
 
-};
+}
 

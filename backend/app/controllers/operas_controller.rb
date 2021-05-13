@@ -10,7 +10,6 @@ class OperasController < ApplicationController
 
     # GET /operas/:id
     def show
-        @opera = Opera.find(params[:id])
         render json: @opera 
     end 
 

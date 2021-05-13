@@ -14,10 +14,10 @@ class OperaApi {
             title: titleInput.value, 
             director: directorInput.value,
             description: descriptionInput.value,
-            img_src: imgSrcInput.value,  
+            img_src: imgSrcInput.value  
         }
         const configObj = {
-            method: 'POST',
+            method: "POST",
             headers: {
                 "Content-Type": "application/json",
                 Accept: "application/json"
@@ -31,13 +31,12 @@ class OperaApi {
         })
     }
     
-        getOperas(num) {
+        getOperas() {
             fetch(this.baseUrl)
             .then(r => r.json())
             .then(data => {
-                data.slice(0, num).forEach(element => {
+                data.forEach(element => {
                     const o = new OperaCard(element)
-                    const c = new OperaCard(element)
                 })
             OperaCard.appendsCards()
             })

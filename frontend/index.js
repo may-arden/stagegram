@@ -11,11 +11,14 @@ const addOperaShowFormBtn = document.querySelector("#add-opera-form-btn")
 const operaFormContainer = document.querySelector("#create-opera-form")
 const addOperaForm = document.getElementById("add-opera-form")
 
-const checkBoxOperaDiv = document.getElementById("checkbox-opera-list") 
-const collectionBtnDiv = document.getElementById("collection-btn-div")
-
 const collectionFormContainer = document.getElementById("collection-form-container")
 const collectionForm = document.getElementById("collection-form")
+
+//divs containing grids 
+const checkBoxOperaDiv = document.getElementById("checkbox-opera-list") 
+const collectionBtnDiv = document.getElementById("collection-buttons")
+
+
 
 let showCollectionForm = false
 let check = true 
@@ -36,5 +39,8 @@ makeCollectionBtn.addEventListener("click", () => {
     })
 
 operaApi.getCheckListOperas() 
+operaApi.getPlants()
+
+
 
 
