@@ -1,5 +1,6 @@
 const port = "http://127.0.0.1:3000"
 const operaApi = new OperaApi(port)
+const collectionApi = new CollectionApi(port)
 
 // navigation buttons
 const navBar = document.getElementById("nav-bar")
@@ -68,7 +69,7 @@ makeCollectionBtn.addEventListener("click", () => {
 
 operaApi.getCheckListOperas() 
 collectionApi.getCollections() 
-operaApi.getPlants()
+// operaApi.getOperas()
 
 
 

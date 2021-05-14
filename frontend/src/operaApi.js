@@ -31,16 +31,16 @@ class OperaApi {
         })
     }
     
-        getOperas() {
-            fetch(this.baseUrl)
-            .then(r => r.json())
-            .then(data => {
-                data.forEach(element => {
-                    const o = new OperaCard(element)
-                })
-            OperaCard.appendsCards()
-            })
-        }
+        // getOperas() {
+        //     fetch(this.baseUrl)
+        //     .then(r => r.json())
+        //     .then(data => {
+        //         data.forEach(element => {
+        //             const o = new OperaCard(element)
+        //         })
+        //     OperaCard.appendsCards()
+        //     })
+        // }
 
         getCheckListOperas() {
             fetch(this.baseUrl)

@@ -2135,3 +2135,87 @@ Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 90)
 Completed 200 OK in 6ms (Views: 5.4ms | ActiveRecord: 0.3ms | Allocations: 3358)
 
 
+Started GET "/operas" for 127.0.0.1 at 2021-05-13 18:43:38 -0700
+Started GET "/collections" for 127.0.0.1 at 2021-05-13 18:43:38 -0700
+Processing by OperasController#index as */*
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/operas_controller.rb:7:in `index'
+  [1m[36mOpera Load (0.3ms)[0m  [1m[34mSELECT "operas".* FROM "operas"[0m
+Processing by CollectionsController#index as */*
+  ↳ app/controllers/operas_controller.rb:7:in `index'
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 90)
+
+
+Completed 200 OK in 7ms (Views: 6.8ms | ActiveRecord: 0.6ms | Allocations: 3913)
+
+
+Started GET "/operas" for 127.0.0.1 at 2021-05-13 19:10:55 -0700
+Started GET "/collections" for 127.0.0.1 at 2021-05-13 19:10:55 -0700
+Processing by CollectionsController#index as */*
+Processing by OperasController#index as */*
+Completed 200 OK in 0ms (Views: 0.1ms | Allocations: 90)
+
+
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/operas_controller.rb:7:in `index'
+  [1m[36mOpera Load (0.3ms)[0m  [1m[34mSELECT "operas".* FROM "operas"[0m
+  ↳ app/controllers/operas_controller.rb:7:in `index'
+Completed 200 OK in 6ms (Views: 5.8ms | ActiveRecord: 0.8ms | Allocations: 3812)
+
+
+Started GET "/collections" for 127.0.0.1 at 2021-05-13 19:11:55 -0700
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CollectionsController#index as HTML
+Completed 200 OK in 12ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 4448)
+
+
+Started GET "/opera_collections" for 127.0.0.1 at 2021-05-13 19:12:03 -0700
+Processing by OperaCollectionsController#index as HTML
+  [1m[36mOperaCollection Load (0.2ms)[0m  [1m[34mSELECT "opera_collections".* FROM "opera_collections"[0m
+  ↳ app/controllers/opera_collections_controller.rb:6:in `index'
+  [1m[36mOpera Load (0.2ms)[0m  [1m[34mSELECT "operas".* FROM "operas" WHERE "operas"."id" = ? LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/opera_collections_controller.rb:6:in `index'
+  [1m[36mCollection Load (0.1ms)[0m  [1m[34mSELECT "collections".* FROM "collections" WHERE "collections"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/opera_collections_controller.rb:6:in `index'
+  [1m[36mOpera Load (0.1ms)[0m  [1m[34mSELECT "operas".* FROM "operas" WHERE "operas"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/opera_collections_controller.rb:6:in `index'
+  [1m[36mCACHE Collection Load (0.0ms)[0m  [1m[34mSELECT "collections".* FROM "collections" WHERE "collections"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/opera_collections_controller.rb:6:in `index'
+  [1m[36mOpera Load (0.2ms)[0m  [1m[34mSELECT "operas".* FROM "operas" WHERE "operas"."id" = ? LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/opera_collections_controller.rb:6:in `index'
+  [1m[36mCACHE Collection Load (0.0ms)[0m  [1m[34mSELECT "collections".* FROM "collections" WHERE "collections"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/opera_collections_controller.rb:6:in `index'
+Completed 200 OK in 40ms (Views: 0.1ms | ActiveRecord: 2.4ms | Allocations: 18639)
+
+
+Started GET "/operas" for 127.0.0.1 at 2021-05-13 19:12:26 -0700
+Started GET "/opera_collections" for 127.0.0.1 at 2021-05-13 19:12:26 -0700
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by OperasController#index as */*
+Processing by OperaCollectionsController#index as */*
+  [1m[36mOpera Load (0.2ms)[0m  [1m[34mSELECT "operas".* FROM "operas"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/opera_collections_controller.rb:6:in `index'
+  ↳ app/controllers/operas_controller.rb:7:in `index'
+Completed 200 OK in 22ms (Views: 14.2ms | ActiveRecord: 1.1ms | Allocations: 13067)
+
+
+  [1m[36mOperaCollection Load (0.3ms)[0m  [1m[34mSELECT "opera_collections".* FROM "opera_collections"[0m
+  ↳ app/controllers/opera_collections_controller.rb:6:in `index'
+  [1m[36mOpera Load (0.2ms)[0m  [1m[34mSELECT "operas".* FROM "operas" WHERE "operas"."id" = ? LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/opera_collections_controller.rb:6:in `index'
+  [1m[36mCollection Load (0.2ms)[0m  [1m[34mSELECT "collections".* FROM "collections" WHERE "collections"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/opera_collections_controller.rb:6:in `index'
+  [1m[36mOpera Load (0.2ms)[0m  [1m[34mSELECT "operas".* FROM "operas" WHERE "operas"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/opera_collections_controller.rb:6:in `index'
+  [1m[36mCACHE Collection Load (0.0ms)[0m  [1m[34mSELECT "collections".* FROM "collections" WHERE "collections"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/opera_collections_controller.rb:6:in `index'
+  [1m[36mOpera Load (0.2ms)[0m  [1m[34mSELECT "operas".* FROM "operas" WHERE "operas"."id" = ? LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/opera_collections_controller.rb:6:in `index'
+  [1m[36mCACHE Collection Load (0.0ms)[0m  [1m[34mSELECT "collections".* FROM "collections" WHERE "collections"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/opera_collections_controller.rb:6:in `index'
+Completed 200 OK in 54ms (Views: 0.7ms | ActiveRecord: 3.4ms | Allocations: 22525)
+
+

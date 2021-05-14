@@ -3,6 +3,25 @@ const collectionUserInput = document.querySelector("#collection-user")
 
 class CollectionApi {
 
+    constructor(port){
+        this.baseUrl = `${port}/opera_collections`
+    }
+
+    getCollections() {
+        fetch(this.baseUrl)
+            .then(r => r.json())
+                .then(data => {
+                    data.forEach(collection => {
+                        new Collection(collection).renderCollection()
+                })
+            })
+    }
+
+    createCollection () {
+    const checkedOperas = document.querySelectorAll('input[name="opera_ids]:checked'); 
+    let array = []
+    checkedOperas.forEach(element => array.push(parseInt(element.value, 10)))    
+
     const collectionInfo = {
         collection: {
         name: collectionNameInput.value, 
@@ -24,7 +43,8 @@ class CollectionApi {
         .then (r => r.json())
             .then (json => {
                 const c = new Collection(json)
+             
 
             })
 
-}
+        }}
