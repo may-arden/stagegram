@@ -3,6 +3,13 @@ const collectionUserInput = document.querySelector("#collection-user")
 
 class CollectionApi {
 
+    const collectionInfo = {
+        collection: {
+        name: collectionNameInput.value, 
+        user: collectionUserInput.value, 
+        opera_ids: array 
+        }
+    }
 
     const configObj = {
         method: 'POST',
