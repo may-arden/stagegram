@@ -1,4 +1,4 @@
 class OperaSerializer
   include FastJsonapi::ObjectSerializer
-  attributes :title, :director, :description, :im_src 
+  attributes :title, :director, :description, :img_src 
 end

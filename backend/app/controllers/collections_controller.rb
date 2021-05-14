@@ -3,7 +3,7 @@ class CollectionsController < ApplicationController
 
     def index 
         @collections = Collection.all 
-        render json: @collection.to_json(include: [:operas])
+        render json: @collections.to_json(include: [:operas])
     end  
 
     def show 
