@@ -1697,3 +1697,266 @@ Processing by OperasController#index as */*
 Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.2ms | Allocations: 3020)
 
 
+Started GET "/collections" for 127.0.0.1 at 2021-05-13 17:47:18 -0700
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/Users/mayarden/Desktop/stagegram/backend/app/controllers/collections_controller.rb:10: syntax error, unexpected ':', expecting ')'
+...: @collection.to_json(:include: [:operas])
+...                              ^
+/Users/mayarden/Desktop/stagegram/backend/app/controllers/collections_controller.rb:10: syntax error, unexpected ')', expecting end
+...on.to_json(:include: [:operas])
+...                              ^
+/Users/mayarden/Desktop/stagegram/backend/app/controllers/collections_controller.rb:19: syntax error, unexpected tSYMBEG, expecting do or '{' or '('
+...n: @collection.errors, status :unprocessable_entity
+...                              ^
+/Users/mayarden/Desktop/stagegram/backend/app/controllers/collections_controller.rb:44: syntax error, unexpected ':', expecting ')'
+...ermit(:name, :user, :opera_ids:[])
+...                              ^):
+  
+app/controllers/collections_controller.rb:10: syntax error, unexpected ':', expecting ')'
+app/controllers/collections_controller.rb:10: syntax error, unexpected ')', expecting end
+app/controllers/collections_controller.rb:19: syntax error, unexpected tSYMBEG, expecting do or '{' or '('
+app/controllers/collections_controller.rb:44: syntax error, unexpected ':', expecting ')'
+app/controllers/collections_controller.rb:10: syntax error, unexpected ':', expecting ')'
+app/controllers/collections_controller.rb:10: syntax error, unexpected ')', expecting end
+app/controllers/collections_controller.rb:19: syntax error, unexpected tSYMBEG, expecting do or '{' or '('
+app/controllers/collections_controller.rb:44: syntax error, unexpected ':', expecting ')'
+Started GET "/collections" for 127.0.0.1 at 2021-05-13 17:47:50 -0700
+  
+SyntaxError (/Users/mayarden/Desktop/stagegram/backend/app/controllers/collections_controller.rb:19: syntax error, unexpected tSYMBEG, expecting do or '{' or '('
+...n: @collection.errors, status :unprocessable_entity
+...                              ^
+/Users/mayarden/Desktop/stagegram/backend/app/controllers/collections_controller.rb:44: syntax error, unexpected ':', expecting ')'
+...ermit(:name, :user, :opera_ids:[])
+...                              ^):
+  
+app/controllers/collections_controller.rb:19: syntax error, unexpected tSYMBEG, expecting do or '{' or '('
+app/controllers/collections_controller.rb:44: syntax error, unexpected ':', expecting ')'
+app/controllers/collections_controller.rb:19: syntax error, unexpected tSYMBEG, expecting do or '{' or '('
+app/controllers/collections_controller.rb:44: syntax error, unexpected ':', expecting ')'
+Started GET "/collections" for 127.0.0.1 at 2021-05-13 17:48:05 -0700
+  
+SyntaxError (/Users/mayarden/Desktop/stagegram/backend/app/controllers/collections_controller.rb:44: syntax error, unexpected ':', expecting ')'
+...ermit(:name, :user, :opera_ids:[])
+...                              ^):
+  
+app/controllers/collections_controller.rb:44: syntax error, unexpected ':', expecting ')'
+app/controllers/collections_controller.rb:44: syntax error, unexpected ':', expecting ')'
+Started GET "/collections" for 127.0.0.1 at 2021-05-13 17:48:24 -0700
+Processing by CollectionsController#index as HTML
+Completed 500 Internal Server Error in 11ms (Allocations: 3871)
+
+
+  
+NameError (undefined local variable or method `collection' for #<CollectionsController:0x007fdb570180f8>
+Did you mean?  @collections):
+  
+app/controllers/collections_controller.rb:6:in `index'
+Started GET "/collections" for 127.0.0.1 at 2021-05-13 17:48:49 -0700
+Processing by CollectionsController#index as HTML
+Completed 200 OK in 2ms (Views: 0.1ms | Allocations: 1589)
+
+
+Started GET "/collections" for 127.0.0.1 at 2021-05-13 17:49:06 -0700
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CollectionsController#index as HTML
+Completed 200 OK in 6ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 4457)
+
+
+Started GET "/opera_collections" for 127.0.0.1 at 2021-05-13 17:49:30 -0700
+Processing by OperaCollectionsController#index as HTML
+Completed 200 OK in 5ms (Views: 0.1ms | Allocations: 1044)
+
+
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mOperaCollection Load (0.2ms)[0m  [1m[34mSELECT "opera_collections".* FROM "opera_collections" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCollection Load (0.2ms)[0m  [1m[34mSELECT "collections".* FROM "collections" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mOperaCollection Load (0.5ms)[0m  [1m[34mSELECT "opera_collections".* FROM "opera_collections"[0m
+  [1m[36mCollection Load (0.4ms)[0m  [1m[34mSELECT "collections".* FROM "collections"[0m
+Started GET "/opera_collection/1" for 127.0.0.1 at 2021-05-13 17:52:15 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/opera_collection/1"):
+  
+Started GET "/opera_collections/1" for 127.0.0.1 at 2021-05-13 17:52:23 -0700
+Processing by OperaCollectionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/opera_collections_controller.rb:39:in `set_opera_collection'
+  [1m[36mOpera Load (0.3ms)[0m  [1m[34mSELECT "operas".* FROM "operas" WHERE "operas"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/opera_collections_controller.rb:39:in `set_opera_collection'
+Completed 404 Not Found in 16ms (ActiveRecord: 2.1ms | Allocations: 3777)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Opera with 'id'=1):
+  
+app/controllers/opera_collections_controller.rb:39:in `set_opera_collection'
+Started GET "/collections/1" for 127.0.0.1 at 2021-05-13 17:52:34 -0700
+Processing by CollectionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCollection Load (0.3ms)[0m  [1m[34mSELECT "collections".* FROM "collections" WHERE "collections"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/collections_controller.rb:40:in `set_collection'
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.9ms | Allocations: 4814)
+
+
+  
+TypeError (no implicit conversion of Symbol into Integer):
+  
+app/controllers/collections_controller.rb:10:in `[]'
+app/controllers/collections_controller.rb:10:in `show'
+Started GET "/collection/1" for 127.0.0.1 at 2021-05-13 17:52:38 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/collection/1"):
+  
+Started GET "/operas/1" for 127.0.0.1 at 2021-05-13 17:52:46 -0700
+Processing by OperasController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mOpera Load (0.2ms)[0m  [1m[34mSELECT "operas".* FROM "operas" WHERE "operas"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/operas_controller.rb:46:in `set_opera'
+Completed 404 Not Found in 1ms (ActiveRecord: 0.2ms | Allocations: 499)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Opera with 'id'=1):
+  
+app/controllers/operas_controller.rb:46:in `set_opera'
+Started GET "/operas/5" for 127.0.0.1 at 2021-05-13 17:52:49 -0700
+Processing by OperasController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mOpera Load (0.4ms)[0m  [1m[34mSELECT "operas".* FROM "operas" WHERE "operas"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/operas_controller.rb:46:in `set_opera'
+Completed 200 OK in 8ms (Views: 0.6ms | ActiveRecord: 0.4ms | Allocations: 3892)
+
+
+Started GET "/collections/1" for 127.0.0.1 at 2021-05-13 17:52:57 -0700
+Processing by CollectionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCollection Load (0.2ms)[0m  [1m[34mSELECT "collections".* FROM "collections" WHERE "collections"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/collections_controller.rb:40:in `set_collection'
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.2ms | Allocations: 506)
+
+
+  
+TypeError (no implicit conversion of Symbol into Integer):
+  
+app/controllers/collections_controller.rb:10:in `[]'
+app/controllers/collections_controller.rb:10:in `show'
+Started GET "/collections" for 127.0.0.1 at 2021-05-13 17:53:55 -0700
+Processing by CollectionsController#index as HTML
+Completed 200 OK in 3ms (Views: 0.1ms | Allocations: 1558)
+
+
+Started GET "/opera_collections" for 127.0.0.1 at 2021-05-13 17:53:59 -0700
+Processing by OperaCollectionsController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/opera_collections_controller.rb:6:in `index'
+  [1m[36mOperaCollection Load (0.2ms)[0m  [1m[34mSELECT "opera_collections".* FROM "opera_collections"[0m
+  ↳ app/controllers/opera_collections_controller.rb:6:in `index'
+  [1m[36mOpera Load (0.1ms)[0m  [1m[34mSELECT "operas".* FROM "operas" WHERE "operas"."id" = ? LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/opera_collections_controller.rb:6:in `index'
+  [1m[36mCollection Load (0.1ms)[0m  [1m[34mSELECT "collections".* FROM "collections" WHERE "collections"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/opera_collections_controller.rb:6:in `index'
+  [1m[36mOpera Load (0.2ms)[0m  [1m[34mSELECT "operas".* FROM "operas" WHERE "operas"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/opera_collections_controller.rb:6:in `index'
+  [1m[36mCACHE Collection Load (0.0ms)[0m  [1m[34mSELECT "collections".* FROM "collections" WHERE "collections"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/opera_collections_controller.rb:6:in `index'
+  [1m[36mOpera Load (0.1ms)[0m  [1m[34mSELECT "operas".* FROM "operas" WHERE "operas"."id" = ? LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/opera_collections_controller.rb:6:in `index'
+  [1m[36mCACHE Collection Load (0.0ms)[0m  [1m[34mSELECT "collections".* FROM "collections" WHERE "collections"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/opera_collections_controller.rb:6:in `index'
+Completed 200 OK in 36ms (Views: 0.1ms | ActiveRecord: 3.1ms | Allocations: 18212)
+
+
+Started GET "/collections" for 127.0.0.1 at 2021-05-13 17:54:14 -0700
+Processing by CollectionsController#index as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 86)
+
+
+Started GET "/collections/1" for 127.0.0.1 at 2021-05-13 17:54:17 -0700
+Processing by CollectionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCollection Load (0.1ms)[0m  [1m[34mSELECT "collections".* FROM "collections" WHERE "collections"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/collections_controller.rb:40:in `set_collection'
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.1ms | Allocations: 613)
+
+
+  
+TypeError (no implicit conversion of Symbol into Integer):
+  
+app/controllers/collections_controller.rb:10:in `[]'
+app/controllers/collections_controller.rb:10:in `show'
+Started GET "/opera_collections/1" for 127.0.0.1 at 2021-05-13 17:54:26 -0700
+Processing by OperaCollectionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mOpera Load (0.2ms)[0m  [1m[34mSELECT "operas".* FROM "operas" WHERE "operas"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/opera_collections_controller.rb:39:in `set_opera_collection'
+Completed 404 Not Found in 2ms (ActiveRecord: 0.2ms | Allocations: 571)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Opera with 'id'=1):
+  
+app/controllers/opera_collections_controller.rb:39:in `set_opera_collection'
+Started GET "/opera_collection/1" for 127.0.0.1 at 2021-05-13 17:54:33 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/opera_collection/1"):
+  
+Started GET "/opera_collections/1" for 127.0.0.1 at 2021-05-13 17:54:48 -0700
+Processing by OperaCollectionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mOpera Load (0.1ms)[0m  [1m[34mSELECT "operas".* FROM "operas" WHERE "operas"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/opera_collections_controller.rb:39:in `set_opera_collection'
+Completed 404 Not Found in 1ms (ActiveRecord: 0.1ms | Allocations: 480)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Opera with 'id'=1):
+  
+app/controllers/opera_collections_controller.rb:39:in `set_opera_collection'
+Started GET "/opera_collections/1" for 127.0.0.1 at 2021-05-13 17:55:41 -0700
+Processing by OperaCollectionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/opera_collections_controller.rb:39:in `set_opera_collection'
+  [1m[36mOperaCollection Load (0.2ms)[0m  [1m[34mSELECT "opera_collections".* FROM "opera_collections" WHERE "opera_collections"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/opera_collections_controller.rb:39:in `set_opera_collection'
+Completed 200 OK in 11ms (Views: 0.4ms | ActiveRecord: 1.3ms | Allocations: 4662)
+
+
+Started GET "/collections/1" for 127.0.0.1 at 2021-05-13 17:55:49 -0700
+Processing by CollectionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCollection Load (0.1ms)[0m  [1m[34mSELECT "collections".* FROM "collections" WHERE "collections"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/collections_controller.rb:40:in `set_collection'
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.6ms | Allocations: 4561)
+
+
+  
+TypeError (no implicit conversion of Symbol into Integer):
+  
+app/controllers/collections_controller.rb:10:in `[]'
+app/controllers/collections_controller.rb:10:in `show'
+Started GET "/collections/1" for 127.0.0.1 at 2021-05-13 17:57:01 -0700
+Processing by CollectionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/collections_controller.rb:40:in `set_collection'
+  [1m[36mCollection Load (0.3ms)[0m  [1m[34mSELECT "collections".* FROM "collections" WHERE "collections"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/collections_controller.rb:40:in `set_collection'
+  [1m[36mOpera Load (0.2ms)[0m  [1m[34mSELECT "operas".* FROM "operas" INNER JOIN "opera_collections" ON "operas"."id" = "opera_collections"."opera_id" WHERE "opera_collections"."collection_id" = ?[0m  [["collection_id", 1]]
+  ↳ app/controllers/collections_controller.rb:10:in `show'
+Completed 200 OK in 28ms (Views: 0.1ms | ActiveRecord: 2.5ms | Allocations: 12055)
+
+
+Started GET "/collections/2" for 127.0.0.1 at 2021-05-13 17:57:05 -0700
+Processing by CollectionsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCollection Load (0.2ms)[0m  [1m[34mSELECT "collections".* FROM "collections" WHERE "collections"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/collections_controller.rb:40:in `set_collection'
+  [1m[36mOpera Load (0.2ms)[0m  [1m[34mSELECT "operas".* FROM "operas" INNER JOIN "opera_collections" ON "operas"."id" = "opera_collections"."opera_id" WHERE "opera_collections"."collection_id" = ?[0m  [["collection_id", 2]]
+  ↳ app/controllers/collections_controller.rb:10:in `show'
+Completed 200 OK in 17ms (Views: 0.1ms | ActiveRecord: 0.4ms | Allocations: 4871)
+
+

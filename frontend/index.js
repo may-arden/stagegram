@@ -64,7 +64,10 @@ makeCollectionBtn.addEventListener("click", () => {
         operaFormContainer.style.display = "none";
     }
 
+
+
 operaApi.getCheckListOperas() 
+collectionApi.getCollections() 
 operaApi.getPlants()
 
 

@@ -3,11 +3,11 @@ class CollectionsController < ApplicationController
 
     def index 
         @collections = Collection.all 
-        render json: collection.to_json(include: [:operas])
+        render json: @collection.to_json(include: [:operas])
     end  
 
     def show 
-        render json: @collection.to_json(:include: [:operas])
+        render json: @collection.to_json(include: [:operas])
     end 
 
     # POST /collections
@@ -16,7 +16,7 @@ class CollectionsController < ApplicationController
           if @collection.save 
             render json: @collectoin.to_json(include: [:operas])
           else 
-            render json: @collection.errors, status :unprocessable_entity
+            render json: @collection.errors, status: :unprocessable_entity
     
         end     
     end 
@@ -41,7 +41,7 @@ class CollectionsController < ApplicationController
     end 
 
     def collection_params 
-        params.require(:collection).permit(:name, :user, :opera_ids:[])
+        params.require(:collection).permit(:name, :user, :opera_ids[])
     end 
 
 end

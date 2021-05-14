@@ -3,7 +3,7 @@ class OperaCollectionsController < ApplicationController
 
     def index 
         @opera_collections = OperaCollection.all 
-        render json: @opera_collection.to_json(include: [:opera, :collection]) 
+        render json: @opera_collections.to_json(include: [:opera, :collection]) 
     end 
 
     def show 
@@ -36,7 +36,7 @@ class OperaCollectionsController < ApplicationController
     private 
 
     def set_opera_collection 
-        @opera_collection = Opera.find(params[:id])
+        @opera_collection = OperaCollection.find(params[:id])
     end 
 
     def opera_collection_params 
