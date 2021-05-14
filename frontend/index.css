@@ -19,6 +19,12 @@ body, html {
 	text-decoration:none;
 } 
 
+img {
+  height: auto;
+  width: 260px; 
+  /* object-fit: fill; */
+}
+
 .input {
 	font-family:"Times New Roman", times new roman;
 	/* padding:13px 32px; */

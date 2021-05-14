@@ -13,6 +13,7 @@ class CollectionApi {
                 .then(data => {
                     data.forEach(collection => {
                         new Collection(collection).renderCollection()
+                        
                 })
             })
     }
@@ -43,7 +44,7 @@ class CollectionApi {
         .then (r => r.json())
             .then (json => {
                 const c = new Collection(json)
-             
+                // c.renderCollection()
 
             })
 

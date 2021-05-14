@@ -15,8 +15,9 @@ class Opera {
         this.front = document.createElement('div')
         this.front.id = `front-${this.id}`
         this.front.innerHTML = `<h3 class="title">${this.title}</h3>
-                                <img class="img_src" id="img-${this.id} src="${this.img_src}" >`
-        this.back = document.createElement('div')
+                                <img class="img_src" id="img-${this.id} src="${this.img_src}">`
+        
+                                this.back = document.createElement('div')
         this.back.id = `back-${this.id}`
         this.back.hidden = true 
         this.back.innerHTML = `<h3 class="director">${this.director}</h3>

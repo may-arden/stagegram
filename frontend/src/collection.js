@@ -27,6 +27,7 @@ class Collection {
         Collection.container.appendChild(this.div).appendChild(this.grid)
 
         Collection.all.push(this)
+         
         }
 
         // Collection #index - which displays the collections
@@ -36,8 +37,12 @@ class Collection {
         // corresponding to the collection ('avant-garde', etc)
     
         renderCollection(){
+            let collectionOpera = this.operas.all 
+             
+         
             let o = Opera.all.find(element => element.id === collectionOpera.id)
             o.renderOpera(this.grid)
+ 
         }
 
         showCollection(event){

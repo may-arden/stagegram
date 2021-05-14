@@ -1,7 +1,7 @@
 const titleInput = document.querySelector("#opera-title")
 const directorInput = document.querySelector("#opera-director")
 const descriptionInput = document.querySelector("#opera-description")
-const imgSrcInput = document.querySelector("#opera-img-src")
+const imgSrcInput = document.querySelector("#opera-img-url")
 
 class OperaApi {
 
@@ -23,6 +23,7 @@ class OperaApi {
                 Accept: "application/json"
             },
             body: JSON.stringify(operaInfo)
+             
         }
         fetch(this.baseUrl, configObj)
         .then (r => r.json())
