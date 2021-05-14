@@ -1,12 +1,13 @@
 const collectionNameInput = document.querySelector("#collection-name")
 const collectionUserInput = document.querySelector("#collection-user")
 
-class collectionApi {
+class CollectionApi {
 
-        constructor(port)
-        this.baseUrl = `${port}/collections`
-        
+    fetch(this.baseUrl, configObj)
+        .then (r => r.json())
+            .then (json => {
+                const c = new Collection(json)
+
+            })
 
 }
-
-end 
