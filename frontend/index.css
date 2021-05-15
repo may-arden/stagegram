@@ -22,7 +22,7 @@ body, html {
 img {
   height: auto;
   width: 260px; 
-  /* object-fit: fill; */
+  object-fit: fill;
 }
 
 .input {

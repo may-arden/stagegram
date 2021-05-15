@@ -27,45 +27,51 @@ class Collection {
         Collection.container.appendChild(this.div).appendChild(this.grid)
 
         Collection.all.push(this)
+        
          
         }
 
-        // Collection #index - which displays the collections
-        // in existence 
-        // Collection #show - which displays the operas 
-        // within the collection when you click on the button
-        // corresponding to the collection ('avant-garde', etc)
-    
+        // renders individual operas inside collection
         renderCollection(){
-            let collectionOpera = this.operas.all 
-             
-         
-            let o = Opera.all.find(element => element.id === collectionOpera.id)
-            o.renderOpera(this.grid)
- 
+            let alphaOperas = this.operas.sort(function(a, b){
+                let name1 = a.title.toUpperCase();
+                let name2 = b.title.toUpperCase();
+                if (name1 < name2) {
+                    return -1;
+                }
+                if (name1 > name2) {
+                    return 1;
+                }
+                return 0;
+            });
+
+                for (const collectionOpera of alphaOperas) {
+                    let o = Opera.all.find(element => element.id === collectionOpera.id)
+                    o.renderOpera(this.grid)
+                    // debugger
+                }
         }
 
-        showCollection(event){
+        // renders buttons with collection titles 
+        showCollection (event){
             let id = parseInt(`${event.target.id}`)
-            let c = Collection.all.filter(collection => collection.id !==id, 10) 
-            let rest = Collection.all.filter(collection => collection.id !== id, 10)
+            let rest = Collection.all.filter(collection => collection.id === id, 10) 
+            let c = Collection.all.filter(collection => collection.id !== id, 10)
+            // debugger
             c[0].renderCollection() 
+            
             let cDiv = c[0].div 
             if (cDiv.hidden){
                 cDiv.hidden = false 
                 rest.forEach(c => c.button.disabled = true) 
-                plantCollectionButton.disabled = true 
+                // operaCollectionButton.disabled = true 
             }else {
                 cDiv.hidden = true 
-                plantCollectionButton.disabled = false 
+                // operaCollectionButton.disabled = false 
                 Collection.all.forEach(c => c.button.disabled = false)
             }
 
         }
-
-
-
-
 
 };
 

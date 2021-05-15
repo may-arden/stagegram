@@ -4,7 +4,7 @@ const collectionUserInput = document.querySelector("#collection-user")
 class CollectionApi {
 
     constructor(port){
-        this.baseUrl = `${port}/opera_collections`
+        this.baseUrl = `${port}/collections`
     }
 
     getCollections() {
@@ -44,6 +44,7 @@ class CollectionApi {
         .then (r => r.json())
             .then (json => {
                 const c = new Collection(json)
+                 
                 // c.renderCollection()
 
             })

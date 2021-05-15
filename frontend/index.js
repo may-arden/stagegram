@@ -18,6 +18,7 @@ const collectionForm = document.getElementById("collection-form")
 //divs containing grids 
 const checkBoxOperaDiv = document.getElementById("checkbox-opera-list") 
 const collectionBtnDiv = document.getElementById("collection-buttons")
+// const operaGrid = document.getElementById("opera-grid")
 
 addOperaForm.addEventListener("submit", handleNewOperaSubmit) 
 
@@ -64,6 +65,18 @@ makeCollectionBtn.addEventListener("click", () => {
         addOperaShowFormBtn.innerText = "add an opera";
         operaFormContainer.style.display = "none";
     }
+
+    let displayOperas = false 
+    operaCollectionButton.addEventListener('click', () => {
+        displayOperas = !displayOperas;
+        if (displayOperas) {
+            collectionBtnDiv.hidden = false;
+            operaCollectionButton.innerText = "hide collections" 
+        } else {
+            collectionBtnDiv.hidden = true; 
+            operaCollectionButton.innerText = "view opera collections"
+        }
+    }); 
 
 
 
