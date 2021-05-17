@@ -45,8 +45,10 @@ class OperaApi {
 
         getCheckListOperas() {
             fetch(this.baseUrl)
+                .catch((e => { console.log(e) }))
                 .then(r => r.json())
                     .then(data => {
+                        console.log(data)
                         data.forEach(element => {
                             let o = new Opera(element)
                         })

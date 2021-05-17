@@ -1,32 +1,36 @@
 <!DOCTYPE HTML>
 <html>
-<head> 
+
+    <head> 
     <title>STAGEGRAM</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="index.css"/>
-</head>
+    </head>
 
 <body>
     <nav class="navbar" id="nav-bar">
         <button id="add-opera-form-btn">add an opera</button>
-        <button id="view-opera-collections-btn">view opera collections</button>
+        <button id="opera-collection-btn">view opera collections</button>
         <button type="button" id="make-collection-button">make a collection</button>
     </nav>
 
-    <div id="collection-buttons"
-      <div class="container" id="create-opera-form" hidden>
-          <h1>add an opera</h1>
-          <p>add information below</p>
-          <form id="add-opera-form" class="form-control">
-              <input type="text" name="opera-title" id="opera-title" placeholder="opera title">
-              <input type="text" name="opera-director" id="opera-director" placeholder="stage director">
-              <input type="add-opera-form" name="opera-img-src" id="opera-img-src" placeholder="image url">
-              <input type="text" name="opera-description" id="opera-description" placeholder="production description" rows="4" cols="55"></textarea>
-              <button type="submit" id="add-opera-btn">create opera</button>
-            </form>
-      </div>
+    <div id="collection-buttons" hidden> <!-- collection buttons render here --> </div>
+    
+    <div class="container" id="create-opera-form" hidden >
+      <h1>add an opera</h1>
+         <p>add information below</p>
+         <form id="add-opera-form" class="form-control">
+             <input type="text" name="opera-title" id="opera-title" placeholder="opera title">
+             <input type="text" name="opera-director" id="opera-director" placeholder="stage director">
+             <input type="add-opera-form" name="opera-img-src" id="opera-img-src" placeholder="image url">
+             <input type="text" name="opera-description" id="opera-description" placeholder="production description" rows="4" cols="55"></textarea>
+             <button type="submit" id="add-opera-btn">create opera</button>  
+         </form>
+    </div>
 
-      <div class="collection-form=container" id="collection-form-container" hidden>
+    <div style="width: 100%"> 
+     <div style="width: 50%">
+      <div class="collection-form-container" id="collection-form-container" hidden>
           <h1>create a collection</h1>
           <p>select your favorites below</p>
             <div class="wrapper" id="checkbox-opera-list">
@@ -38,15 +42,21 @@
                 <input type="submit" value="create" class="button">
             </form>
       </div>
+     </div>
+    </div>
 
       <div class="collection-form-control" id="opera-collection">
           <!-- opera collections render here -->
       </div>
+ 
 
+      
       <script src="./src/operaApi.js"></script>
       <script src="./src/opera.js"></script>
       <script src="./src/collectionApi.js"></script>
-      <script src="./src/index.js"></script>
+      <script src="./src/collection.js"></script>
+      <script src="./index.js"></script>
+      
 
 </body>
 
