@@ -31,6 +31,11 @@ class Collection {
          
         }
 
+
+        // handle new collection submit 
+
+        
+
         // renders individual operas inside collection
         renderCollection(){
             let alphaOperas = this.operas.sort(function(a, b){

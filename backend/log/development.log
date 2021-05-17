@@ -5770,3 +5770,64 @@ Completed 200 OK in 73ms (Views: 47.7ms | ActiveRecord: 0.2ms | Allocations: 216
 Completed 200 OK in 49ms (Views: 0.1ms | ActiveRecord: 1.6ms | Allocations: 17494)
 
 
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCollection Create (0.6ms)[0m  [1m[32mINSERT INTO "collections" ("name", "user", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "test"], ["user", "another test"], ["created_at", "2021-05-17 19:17:23.606212"], ["updated_at", "2021-05-17 19:17:23.606212"]]
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mOperaCollection Load (0.3ms)[0m  [1m[34mSELECT "opera_collections".* FROM "opera_collections" WHERE "opera_collections"."collection_id" = ?[0m  [["collection_id", 3]]
+  [1m[36mCollection Destroy (2.0ms)[0m  [1m[31mDELETE FROM "collections" WHERE "collections"."id" = ?[0m  [["id", 3]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/collections" for 127.0.0.1 at 2021-05-17 12:18:25 -0700
+Started GET "/operas" for 127.0.0.1 at 2021-05-17 12:18:25 -0700
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CollectionsController#index as */*
+  [1m[36mCollection Load (0.1ms)[0m  [1m[34mSELECT "collections".* FROM "collections"[0m
+Processing by OperasController#index as */*
+  ↳ app/controllers/collections_controller.rb:6:in `index'
+  [1m[36mOpera Load (0.2ms)[0m  [1m[34mSELECT "operas".* FROM "operas" INNER JOIN "opera_collections" ON "operas"."id" = "opera_collections"."opera_id" WHERE "opera_collections"."collection_id" = ?[0m  [["collection_id", 2]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/collections_controller.rb:6:in `index'
+Completed 200 OK in 32ms (Views: 0.1ms | ActiveRecord: 1.7ms | Allocations: 15993)
+
+
+  ↳ app/controllers/operas_controller.rb:7:in `index'
+  [1m[36mOpera Load (0.2ms)[0m  [1m[34mSELECT "operas".* FROM "operas"[0m
+  ↳ app/controllers/operas_controller.rb:7:in `index'
+Completed 200 OK in 27ms (Views: 24.2ms | ActiveRecord: 0.5ms | Allocations: 17252)
+
+
+Started GET "/operas" for 127.0.0.1 at 2021-05-17 12:30:42 -0700
+Started GET "/collections" for 127.0.0.1 at 2021-05-17 12:30:42 -0700
+Processing by OperasController#index as */*
+Processing by CollectionsController#index as */*
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/operas_controller.rb:7:in `index'
+  ↳ app/controllers/collections_controller.rb:6:in `index'
+  [1m[36mOpera Load (0.2ms)[0m  [1m[34mSELECT "operas".* FROM "operas"[0m
+  [1m[36mCollection Load (0.1ms)[0m  [1m[34mSELECT "collections".* FROM "collections"[0m
+  ↳ app/controllers/operas_controller.rb:7:in `index'
+  ↳ app/controllers/collections_controller.rb:6:in `index'
+Completed 200 OK in 8ms (Views: 7.5ms | ActiveRecord: 0.7ms | Allocations: 4420)
+
+
+  [1m[36mOpera Load (0.3ms)[0m  [1m[34mSELECT "operas".* FROM "operas" INNER JOIN "opera_collections" ON "operas"."id" = "opera_collections"."opera_id" WHERE "opera_collections"."collection_id" = ?[0m  [["collection_id", 2]]
+  ↳ app/controllers/collections_controller.rb:6:in `index'
+Completed 200 OK in 9ms (Views: 0.2ms | ActiveRecord: 0.9ms | Allocations: 5287)
+
+
+Started POST "/collections" for 127.0.0.1 at 2021-05-17 12:31:03 -0700
+Processing by CollectionsController#create as JSON
+  Parameters: {"collection"=>{"name"=>"traditional classics", "user"=>"may", "opera_ids"=>[]}}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 116)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1..2)):
+  
+app/controllers/collections_controller.rb:44:in `[]'
+app/controllers/collections_controller.rb:44:in `collection_params'
+app/controllers/collections_controller.rb:15:in `create'

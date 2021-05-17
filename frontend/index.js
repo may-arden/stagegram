@@ -21,6 +21,7 @@ const collectionBtnDiv = document.getElementById("collection-buttons")
 // const operaGrid = document.getElementById("opera-grid")
 
 addOperaForm.addEventListener("submit", handleNewOperaSubmit) 
+collectionForm.addEventListener("submit", handleSubmit)
 
 // add opera form visibility 
 let addOpera = false
@@ -77,6 +78,17 @@ makeCollectionBtn.addEventListener("click", () => {
             operaCollectionButton.innerText = "view opera collections"
         }
     }); 
+
+    function handleSubmit(e){
+        e.preventDefault();
+        collectionApi.createCollection();
+        e.target.reset();
+        alert("collection successfully created :)");
+        showCollectionForm = false 
+        makeCollectionBtn.innerText = "make a collection";
+        collectionFormContainer.hidden = true; 
+        Opera.removeCheckList(); 
+    }
 
 
 
