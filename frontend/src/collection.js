@@ -39,11 +39,6 @@ class Collection {
         }
 
 
-        // handle new collection submit 
-
-
-
-        // renders individual operas inside collection
         renderCollection(){
             // debugger
             let alphaOperas = this.operas.sort(function(a, b){
@@ -66,9 +61,9 @@ class Collection {
                 }
         }
 
-        // renders buttons with collection titles 
+        // this function is triggered by clicking on "avant-garde" or "traditional classics"
         showCollection (event){
-            
+            // debugger 
             let id = parseInt(`${event.target.id}`)
             let c = Collection.all.filter(collection => collection.id === id, 10)
             let rest = Collection.all.filter(collection => collection.id !== id, 10)
@@ -81,12 +76,13 @@ class Collection {
             if (cDiv.hidden){
                 cDiv.hidden = false 
                 rest.forEach(c => c.button.disabled = true) 
-                // operaCollectionButton.disabled = true 
+                operaCollectionButton.disabled = true 
                 
             }else {
                 cDiv.hidden = true 
-                // operaCollectionButton.disabled = false 
+                operaCollectionButton.disabled = false 
                 Collection.all.forEach(c => c.button.disabled = false)
+                
                  
             }
 

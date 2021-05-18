@@ -7,26 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # Opera.create([
-#     { title: "La Boheme", 
-#     director: "Franco Zeffirelli", 
-#     description: "2019 revival of beloved 1981 Zeffirelli production", 
-#     img_src: "https://static01.nyt.com/images/2019/10/31/arts/27boheme3/27boheme3-jumbo.jpg"
-#     }
-#     { title: "La Boheme",
-#     director: "Franco Zeffirelli",
-#     description: "2019 revival of beloved 1981 Zeffirelli production",
-#     img_src: "https://static01.nyt.com/images/2018/09/27/arts/27boheme2/merlin_144322842_74306858-a036-4a0a-a8f2-b091cb2ddb3d-jumbo.jpg?quality=90&auto=webp"
-#     },
 #     { title: "Tosca",
 #     director: "David McVicar",
 #     description: "a conservative and traditional revival of McVicar's staging",
 #     img_src: "https://static01.nyt.com/images/2018/01/02/arts/02tosca-review2/02tosca-review2-jumbo.jpg?quality=90&auto=webp"
-
-#     }
-#     { title: "Tosca",
-#     director: "David McVicar",
-#     description: "a conservative and traditional staging",
-#     img_src: "https://static01.nyt.com/images/2017/12/31/arts/02tosca-review4/02tosca-review4-superJumbo.jpg?quality=90&auto=webp",
 #     },
 #      { title: "Turandot",
 #     director: "Franco Zeffirelli",
