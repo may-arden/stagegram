@@ -30,9 +30,11 @@ addOperaShowFormBtn.addEventListener("click", () => {
     if (addOpera) {
         addOperaShowFormBtn.innerText = "nevermind";
         operaFormContainer.style.display = "block"; 
+        [makeCollectionBtn.disabled, operaCollectionButton.disabled] = [true, true];
     }else { 
         addOperaShowFormBtn.innerText = "add an opera";
         operaFormContainer.style.display = "none"; 
+        [makeCollectionBtn.disabled, operaCollectionButton.disabled] = [false, false]; 
     }
 });
 
@@ -47,11 +49,13 @@ makeCollectionBtn.addEventListener("click", () => {
         Opera.makeCheckList()
         Opera.appendOperas();
         makeCollectionBtn.innerText = "nevermind";
+        [addOperaShowFormBtn.disabled, operaCollectionButton.disabled] = [true, true]
     }else {
         Opera.removeCheckList()
         collectionFormContainer.hidden = true;
         checkBoxOperaDiv.innerHTML = "";
         makeCollectionBtn.innerText = "make a collection";
+        [addOperaShowFormBtn.disabled, operaCollectionButton.disabled] = [false, false]
     }
     check = false 
     })
@@ -72,17 +76,21 @@ makeCollectionBtn.addEventListener("click", () => {
         displayOperas = !displayOperas;
         if (displayOperas) {
             collectionBtnDiv.hidden = false;
-            operaCollectionButton.innerText = "hide collections" 
+            operaCollectionButton.innerText = "hide collections";
+            [addOperaShowFormBtn.disabled, makeCollectionBtn.disabled] = [true, true]
         } else {
             collectionBtnDiv.hidden = true; 
-            operaCollectionButton.innerText = "view opera collections"
+            operaCollectionButton.innerText = "view opera collections";
+            [addOperaShowFormBtn.disabled, makeCollectionBtn.disabled] = [false, false] 
         }
     }); 
 
+    // this is working 
     function handleSubmit(e){
         e.preventDefault();
         collectionApi.createCollection();
         e.target.reset();
+        // debugger 
         alert("collection successfully created :)");
         showCollectionForm = false 
         makeCollectionBtn.innerText = "make a collection";

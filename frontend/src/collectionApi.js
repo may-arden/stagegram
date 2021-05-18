@@ -18,8 +18,8 @@ class CollectionApi {
             })
     }
 
-    createCollection () {
-    const checkedOperas = document.querySelectorAll('input[name="opera_ids]:checked'); 
+    createCollection() {
+    const checkedOperas = document.querySelectorAll('input[name="opera_ids"]:checked'); 
     let array = []
     checkedOperas.forEach(element => array.push(parseInt(element.value, 10)))    
 
@@ -44,8 +44,9 @@ class CollectionApi {
         .then (r => r.json())
             .then (json => {
                 const c = new Collection(json)
+             
                  
-                // c.renderCollection()
+                c.renderCollection()
 
             })
 

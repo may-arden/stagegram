@@ -34,10 +34,11 @@ class Collection {
 
         // handle new collection submit 
 
-        
+
 
         // renders individual operas inside collection
         renderCollection(){
+            // debugger
             let alphaOperas = this.operas.sort(function(a, b){
                 let name1 = a.title.toUpperCase();
                 let name2 = b.title.toUpperCase();
@@ -60,10 +61,11 @@ class Collection {
         // renders buttons with collection titles 
         showCollection (event){
             let id = parseInt(`${event.target.id}`)
-            let rest = Collection.all.filter(collection => collection.id === id, 10) 
-            let c = Collection.all.filter(collection => collection.id !== id, 10)
+            let c = Collection.all.filter(collection => collection.id === id, 10) 
+            let rest = Collection.all.filter(collection => collection.id !== id, 10)
+            // let c = Collection.all.filter(collection => collection.id === id, 10)
             // debugger
-            c[0].renderCollection() 
+           c[0].renderCollection()
             
             let cDiv = c[0].div 
             if (cDiv.hidden){
@@ -74,9 +76,10 @@ class Collection {
                 cDiv.hidden = true 
                 // operaCollectionButton.disabled = false 
                 Collection.all.forEach(c => c.button.disabled = false)
+                
             }
 
         }
 
-};
+}
 

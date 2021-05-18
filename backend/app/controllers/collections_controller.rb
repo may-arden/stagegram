@@ -14,7 +14,7 @@ class CollectionsController < ApplicationController
     def create 
         @collection = Collection.new(collection_params)
           if @collection.save 
-            render json: @collectoin.to_json(include: [:operas])
+            render json: @collection.to_json(include: [:operas])
           else 
             render json: @collection.errors, status: :unprocessable_entity
     
