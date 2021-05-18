@@ -11,7 +11,7 @@ class Collection {
 
         this.button = document.createElement('button')
         this.button.innerHTML = `${this.name}`
-        this.button_id = `${this.id}`
+        this.button.id = `${this.id}`
         this.button.addEventListener('click', this.showCollection)
 
         this.grid = document.createElement('div')
@@ -52,22 +52,23 @@ class Collection {
             });
 
                 for (const collectionOpera of alphaOperas) {
-                    let o = Opera.all.find(element => element.id === collectionOpera.id)
-                    o.renderOpera(this.grid)
+                    let o = Opera.all.find(element => element.id === collectionOpera.id);
+                    o.renderOpera(this.grid);
                     // debugger
                 }
         }
 
         // renders buttons with collection titles 
         showCollection (event){
-            let id = parseInt(`${event.target.id}`)
-            let c = Collection.all.filter(collection => collection.id === id, 10) 
-            let rest = Collection.all.filter(collection => collection.id !== id, 10)
+            // debugger
+            let id = parseInt(`${event.target.id}`);
+            let c = Collection.all.filter(collection => collection.id === id, 10);
+            let rest = Collection.all.filter(collection => collection.id !== id, 10);
             // let c = Collection.all.filter(collection => collection.id === id, 10)
             // debugger
-           c[0].renderCollection()
+           c[0].renderCollection();
             
-            let cDiv = c[0].div 
+            let cDiv = c[0].div
             if (cDiv.hidden){
                 cDiv.hidden = false 
                 rest.forEach(c => c.button.disabled = true) 
