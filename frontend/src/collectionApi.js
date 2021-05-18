@@ -10,7 +10,7 @@ class CollectionApi {
     getCollections() {
         fetch(this.baseUrl)
             .then(r => r.json())
-                .then(data => {
+                .then(data => { 
                     data.forEach(collection => {
                         new Collection(collection).renderCollection()
                         
@@ -21,14 +21,17 @@ class CollectionApi {
     createCollection() {
     const checkedOperas = document.querySelectorAll('input[name="opera_ids"]:checked'); 
     let array = []
-    checkedOperas.forEach(element => array.push(parseInt(element.value, 10)))    
+    checkedOperas.forEach(element => array.push(parseInt(element.value, 10))) 
+        
 
     const collectionInfo = {
         collection: {
         name: collectionNameInput.value, 
         user: collectionUserInput.value, 
         opera_ids: array 
-        }
+        
+        } 
+        
     }
 
     const configObj = {
@@ -46,7 +49,7 @@ class CollectionApi {
                 const c = new Collection(json)
              
                  
-                c.renderCollection()
+                // c.renderCollection()
 
             })
 

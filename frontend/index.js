@@ -85,10 +85,11 @@ makeCollectionBtn.addEventListener("click", () => {
         }
     }); 
 
-    // this is working 
+   
     function handleSubmit(e){
         e.preventDefault();
         collectionApi.createCollection();
+        // debugger 
         e.target.reset();
         // debugger 
         alert("collection successfully created :)");
@@ -96,6 +97,7 @@ makeCollectionBtn.addEventListener("click", () => {
         makeCollectionBtn.innerText = "make a collection";
         collectionFormContainer.hidden = true; 
         Opera.removeCheckList(); 
+        // debugger 
     }
 
 
