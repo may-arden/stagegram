@@ -95,6 +95,7 @@ makeCollectionBtn.addEventListener("click", () => {
         alert("collection successfully created :)");
         showCollectionForm = false 
         makeCollectionBtn.innerText = "make a collection";
+        [addOperaShowFormBtn.disabled, operaCollectionButton.disabled] = [false, false]
         collectionFormContainer.hidden = true; 
         Opera.removeCheckList(); 
         // debugger 
