@@ -38,47 +38,86 @@ class Collection {
          
         }
 
-
+        // 2nd 
         renderCollection(){
             // debugger
+            // iterate over the titles contained within the collection
             let alphaOperas = this.operas.sort(function(a, b){
                 // debugger
-                let name1 = a.title.toUpperCase();
-                let name2 = b.title.toUpperCase();
+                // name1 = pelleas et melisande
+                let name1 = a.title
+                // name2 = don giovanni 
+                let name2 = b.title
+                
                 if (name1 < name2) {
                     return -1;
-                }
+                }  
                 if (name1 > name2) {
                     return 1;
+                    
                 }
                 return 0;
-            });
+                // debugger
 
+            });
+            // alphaOperas is a variable in which all of the operas contained
+            // within this Collection are stored, eg [Don Giovanni, Pelleas et Melisande, 
+            // Dialogues des Carmelites] eg alphaOperas.length = '3'
+            // iterate over alphaOperas to render each individual Opera box 
+            // collectionOpera is a variable in which a single opera within the
+            // collection is stored, eg Don Giovanni
                 for (const collectionOpera of alphaOperas) {
+                    // debugger
+                    // iterate over operas contained within collection 
                     let o = Opera.all.find(element => element.id === collectionOpera.id);
+                    // debugger 
                     o.renderOpera(this.grid);
                     // debugger
                 }
         }
 
-        // this function is triggered by clicking on "avant-garde" or "traditional classics"
+        // 1st this function is triggered by clicking on "avant-garde" or "traditional classics"
         showCollection (event){
+            // event is click
             // debugger 
             let id = parseInt(`${event.target.id}`)
+            // event.target is <button id="6">trad classics</button>
+            //event.target.id is '6'
+            // 6 is the id associated with the button html element we wish to manipulate
+            // it corresponds to the 'trad classics' collection
+            // so the variable c here below is being assigned to represent
+            // the button with the id of 6
             let c = Collection.all.filter(collection => collection.id === id, 10)
-            let rest = Collection.all.filter(collection => collection.id !== id, 10)
-            // let c = Collection.all.filter(collection => collection.id === id, 10)
             // debugger
+            // and this rest variable here below is going to represent the other
+            // collections that do not have the id of 6
+            let rest = Collection.all.filter(collection => collection.id !== id, 10)
+            // and here below we dig one layer deep into the Collection object 
+            // we have singled out and move onto the next 
+            // function renderCollection to iterate over the operas contained
+            // within that object
            c[0].renderCollection()
         //    debugger 
-            
+            // and here below we handle the visibility of the specific collection button
+            // c[0].div = <div id="collection-6" hidden>
+            //              <div class="box" id="opera-36"></div>
+            //                 <div id="front-36"></div>
+            //                  <div id="back-36"></div>
+            //                          + other boxes
+            //               </div>
+            //              </div>
             let cDiv = c[0].div
             if (cDiv.hidden){
                 cDiv.hidden = false 
+            // so if you're looking at a collection, the buttons
+            // corresponding to the other collections are disabled
                 rest.forEach(c => c.button.disabled = true) 
                 operaCollectionButton.disabled = true 
                 
             }else {
+            // and if you're not looking at a collection, 
+            // the buttons corresponding to the other collections
+            // are enabled
                 cDiv.hidden = true 
                 operaCollectionButton.disabled = false 
                 Collection.all.forEach(c => c.button.disabled = false)
