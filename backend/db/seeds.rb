@@ -92,6 +92,6 @@
 
 
 # Collection.create([
-#     {name: "avant-garde", user: "May", operas: avant_garde},
+#     # {name: "avant-garde", user: "May", operas: avant_garde},
 #     {name: "traditional classics", user: "May", operas: traditional}
 # ])
