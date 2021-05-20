@@ -62,10 +62,15 @@ makeCollectionBtn.addEventListener("click", () => {
 
     // persist new opera to database 
     function handleNewOperaSubmit (e) {
+        // stops form from POSTING
         e.preventDefault() 
+        // instantiates new opera object to be persisted to database via JSON api
         operaApi.createOpera() 
+        // resets the form
         e.target.reset() 
+        // alerts user of successful submission
         alert("opera successfully created :)")
+        
         addOpera = false 
         addOperaShowFormBtn.innerText = "add an opera";
         operaFormContainer.style.display = "none";

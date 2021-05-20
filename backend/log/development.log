@@ -9210,3 +9210,229 @@ Completed 200 OK in 7ms (Views: 6.2ms | ActiveRecord: 0.1ms | Allocations: 3101)
 Completed 200 OK in 16ms (Views: 0.1ms | ActiveRecord: 0.5ms | Allocations: 6296)
 
 
+Started POST "/collections" for 127.0.0.1 at 2021-05-18 18:03:47 -0700
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CollectionsController#create as JSON
+  Parameters: {"collection"=>{"name"=>"camp", "user"=>"may", "opera_ids"=>[11, 12]}}
+  [1m[36mOpera Load (0.2ms)[0m  [1m[34mSELECT "operas".* FROM "operas" WHERE "operas"."id" IN (?, ?)[0m  [[nil, 11], [nil, 12]]
+  ↳ app/controllers/collections_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/collections_controller.rb:16:in `create'
+  [1m[36mCollection Create (0.8ms)[0m  [1m[32mINSERT INTO "collections" ("name", "user", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "camp"], ["user", "may"], ["created_at", "2021-05-19 01:03:47.925438"], ["updated_at", "2021-05-19 01:03:47.925438"]]
+  ↳ app/controllers/collections_controller.rb:16:in `create'
+  [1m[36mOperaCollection Create (0.3ms)[0m  [1m[32mINSERT INTO "opera_collections" ("opera_id", "collection_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["opera_id", 11], ["collection_id", 14], ["created_at", "2021-05-19 01:03:47.929229"], ["updated_at", "2021-05-19 01:03:47.929229"]]
+  ↳ app/controllers/collections_controller.rb:16:in `create'
+  [1m[36mOperaCollection Create (0.1ms)[0m  [1m[32mINSERT INTO "opera_collections" ("opera_id", "collection_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["opera_id", 12], ["collection_id", 14], ["created_at", "2021-05-19 01:03:47.930966"], ["updated_at", "2021-05-19 01:03:47.930966"]]
+  ↳ app/controllers/collections_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/collections_controller.rb:16:in `create'
+Completed 200 OK in 49ms (Views: 0.1ms | ActiveRecord: 5.6ms | Allocations: 23189)
+
+
+Started GET "/collections" for 127.0.0.1 at 2021-05-18 18:17:54 -0700
+Started GET "/operas" for 127.0.0.1 at 2021-05-18 18:17:54 -0700
+Processing by OperasController#index as */*
+Processing by CollectionsController#index as */*
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/operas_controller.rb:7:in `index'
+  [1m[36mOpera Load (0.2ms)[0m  [1m[34mSELECT "operas".* FROM "operas"[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/operas_controller.rb:7:in `index'
+  ↳ app/controllers/collections_controller.rb:6:in `index'
+Completed 200 OK in 7ms (Views: 6.8ms | ActiveRecord: 1.2ms | Allocations: 3966)
+
+
+  [1m[36mCollection Load (0.2ms)[0m  [1m[34mSELECT "collections".* FROM "collections"[0m
+  ↳ app/controllers/collections_controller.rb:6:in `index'
+  [1m[36mOpera Load (0.3ms)[0m  [1m[34mSELECT "operas".* FROM "operas" INNER JOIN "opera_collections" ON "operas"."id" = "opera_collections"."opera_id" WHERE "opera_collections"."collection_id" = ?[0m  [["collection_id", 11]]
+  ↳ app/controllers/collections_controller.rb:6:in `index'
+  [1m[36mOpera Load (0.1ms)[0m  [1m[34mSELECT "operas".* FROM "operas" INNER JOIN "opera_collections" ON "operas"."id" = "opera_collections"."opera_id" WHERE "opera_collections"."collection_id" = ?[0m  [["collection_id", 13]]
+  ↳ app/controllers/collections_controller.rb:6:in `index'
+  [1m[36mOpera Load (0.2ms)[0m  [1m[34mSELECT "operas".* FROM "operas" INNER JOIN "opera_collections" ON "operas"."id" = "opera_collections"."opera_id" WHERE "opera_collections"."collection_id" = ?[0m  [["collection_id", 14]]
+  ↳ app/controllers/collections_controller.rb:6:in `index'
+Completed 200 OK in 18ms (Views: 0.1ms | ActiveRecord: 1.0ms | Allocations: 9565)
+
+
+Started GET "/operas" for 127.0.0.1 at 2021-05-18 18:19:23 -0700
+Started GET "/collections" for 127.0.0.1 at 2021-05-18 18:19:23 -0700
+Processing by OperasController#index as */*
+Processing by CollectionsController#index as */*
+  [1m[36mCollection Load (0.1ms)[0m  [1m[34mSELECT "collections".* FROM "collections"[0m
+  [1m[36mOpera Load (0.2ms)[0m  [1m[34mSELECT "operas".* FROM "operas"[0m
+  ↳ app/controllers/collections_controller.rb:6:in `index'
+  [1m[36mOpera Load (0.3ms)[0m  [1m[34mSELECT "operas".* FROM "operas" INNER JOIN "opera_collections" ON "operas"."id" = "opera_collections"."opera_id" WHERE "opera_collections"."collection_id" = ?[0m  [["collection_id", 11]]
+  ↳ app/controllers/collections_controller.rb:6:in `index'
+  [1m[36mOpera Load (0.1ms)[0m  [1m[34mSELECT "operas".* FROM "operas" INNER JOIN "opera_collections" ON "operas"."id" = "opera_collections"."opera_id" WHERE "opera_collections"."collection_id" = ?[0m  [["collection_id", 13]]
+  ↳ app/controllers/operas_controller.rb:7:in `index'
+  ↳ app/controllers/collections_controller.rb:6:in `index'
+Completed 200 OK in 8ms (Views: 7.5ms | ActiveRecord: 0.2ms | Allocations: 5277)
+
+
+  [1m[36mOpera Load (0.1ms)[0m  [1m[34mSELECT "operas".* FROM "operas" INNER JOIN "opera_collections" ON "operas"."id" = "opera_collections"."opera_id" WHERE "opera_collections"."collection_id" = ?[0m  [["collection_id", 14]]
+  ↳ app/controllers/collections_controller.rb:6:in `index'
+Completed 200 OK in 11ms (Views: 0.1ms | ActiveRecord: 0.7ms | Allocations: 7293)
+
+
+Started GET "/operas" for 127.0.0.1 at 2021-05-18 18:19:49 -0700
+Started GET "/collections" for 127.0.0.1 at 2021-05-18 18:19:49 -0700
+Processing by OperasController#index as */*
+  [1m[36mOpera Load (0.2ms)[0m  [1m[34mSELECT "operas".* FROM "operas"[0m
+  ↳ app/controllers/operas_controller.rb:7:in `index'
+Processing by CollectionsController#index as */*
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.2ms | Allocations: 2967)
+
+
+  [1m[36mCollection Load (0.1ms)[0m  [1m[34mSELECT "collections".* FROM "collections"[0m
+  ↳ app/controllers/collections_controller.rb:6:in `index'
+  [1m[36mOpera Load (0.2ms)[0m  [1m[34mSELECT "operas".* FROM "operas" INNER JOIN "opera_collections" ON "operas"."id" = "opera_collections"."opera_id" WHERE "opera_collections"."collection_id" = ?[0m  [["collection_id", 11]]
+  ↳ app/controllers/collections_controller.rb:6:in `index'
+  [1m[36mOpera Load (0.1ms)[0m  [1m[34mSELECT "operas".* FROM "operas" INNER JOIN "opera_collections" ON "operas"."id" = "opera_collections"."opera_id" WHERE "opera_collections"."collection_id" = ?[0m  [["collection_id", 13]]
+  ↳ app/controllers/collections_controller.rb:6:in `index'
+  [1m[36mOpera Load (0.2ms)[0m  [1m[34mSELECT "operas".* FROM "operas" INNER JOIN "opera_collections" ON "operas"."id" = "opera_collections"."opera_id" WHERE "opera_collections"."collection_id" = ?[0m  [["collection_id", 14]]
+  ↳ app/controllers/collections_controller.rb:6:in `index'
+Completed 200 OK in 27ms (Views: 0.2ms | ActiveRecord: 0.6ms | Allocations: 4717)
+
+
+Started GET "/collections" for 127.0.0.1 at 2021-05-18 18:20:08 -0700
+Processing by CollectionsController#index as */*
+  [1m[36mCollection Load (0.2ms)[0m  [1m[34mSELECT "collections".* FROM "collections"[0m
+  ↳ app/controllers/collections_controller.rb:6:in `index'
+  [1m[36mOpera Load (0.1ms)[0m  [1m[34mSELECT "operas".* FROM "operas" INNER JOIN "opera_collections" ON "operas"."id" = "opera_collections"."opera_id" WHERE "opera_collections"."collection_id" = ?[0m  [["collection_id", 11]]
+Started GET "/operas" for 127.0.0.1 at 2021-05-18 18:20:08 -0700
+  ↳ app/controllers/collections_controller.rb:6:in `index'
+  [1m[36mOpera Load (0.1ms)[0m  [1m[34mSELECT "operas".* FROM "operas" INNER JOIN "opera_collections" ON "operas"."id" = "opera_collections"."opera_id" WHERE "opera_collections"."collection_id" = ?[0m  [["collection_id", 13]]
+  ↳ app/controllers/collections_controller.rb:6:in `index'
+Processing by OperasController#index as */*
+  [1m[36mOpera Load (0.2ms)[0m  [1m[34mSELECT "operas".* FROM "operas"[0m
+  ↳ app/controllers/operas_controller.rb:7:in `index'
+  [1m[36mOpera Load (0.2ms)[0m  [1m[34mSELECT "operas".* FROM "operas" INNER JOIN "opera_collections" ON "operas"."id" = "opera_collections"."opera_id" WHERE "opera_collections"."collection_id" = ?[0m  [["collection_id", 14]]
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.2ms | Allocations: 2774)
+
+
+  ↳ app/controllers/collections_controller.rb:6:in `index'
+Completed 200 OK in 14ms (Views: 0.2ms | ActiveRecord: 0.7ms | Allocations: 7882)
+
+
+Started GET "/operas" for 127.0.0.1 at 2021-05-18 18:20:38 -0700
+Started GET "/collections" for 127.0.0.1 at 2021-05-18 18:20:38 -0700
+Processing by OperasController#index as */*
+  [1m[36mOpera Load (0.1ms)[0m  [1m[34mSELECT "operas".* FROM "operas"[0m
+  ↳ app/controllers/operas_controller.rb:7:in `index'
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.1ms | Allocations: 2780)
+
+
+Processing by CollectionsController#index as */*
+  [1m[36mCollection Load (0.2ms)[0m  [1m[34mSELECT "collections".* FROM "collections"[0m
+  ↳ app/controllers/collections_controller.rb:6:in `index'
+  [1m[36mOpera Load (0.2ms)[0m  [1m[34mSELECT "operas".* FROM "operas" INNER JOIN "opera_collections" ON "operas"."id" = "opera_collections"."opera_id" WHERE "opera_collections"."collection_id" = ?[0m  [["collection_id", 11]]
+  ↳ app/controllers/collections_controller.rb:6:in `index'
+  [1m[36mOpera Load (0.2ms)[0m  [1m[34mSELECT "operas".* FROM "operas" INNER JOIN "opera_collections" ON "operas"."id" = "opera_collections"."opera_id" WHERE "opera_collections"."collection_id" = ?[0m  [["collection_id", 13]]
+  ↳ app/controllers/collections_controller.rb:6:in `index'
+  [1m[36mOpera Load (0.2ms)[0m  [1m[34mSELECT "operas".* FROM "operas" INNER JOIN "opera_collections" ON "operas"."id" = "opera_collections"."opera_id" WHERE "opera_collections"."collection_id" = ?[0m  [["collection_id", 14]]
+  ↳ app/controllers/collections_controller.rb:6:in `index'
+Completed 200 OK in 11ms (Views: 0.2ms | ActiveRecord: 0.8ms | Allocations: 4472)
+
+
+Started GET "/collections" for 127.0.0.1 at 2021-05-18 18:24:51 -0700
+Started GET "/operas" for 127.0.0.1 at 2021-05-18 18:24:51 -0700
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CollectionsController#index as */*
+Processing by OperasController#index as */*
+  [1m[36mCollection Load (0.2ms)[0m  [1m[34mSELECT "collections".* FROM "collections"[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/operas_controller.rb:7:in `index'
+  [1m[36mOpera Load (0.3ms)[0m  [1m[34mSELECT "operas".* FROM "operas"[0m
+  ↳ app/controllers/collections_controller.rb:6:in `index'
+  ↳ app/controllers/operas_controller.rb:7:in `index'
+  [1m[36mOpera Load (0.2ms)[0m  [1m[34mSELECT "operas".* FROM "operas" INNER JOIN "opera_collections" ON "operas"."id" = "opera_collections"."opera_id" WHERE "opera_collections"."collection_id" = ?[0m  [["collection_id", 11]]
+Completed 200 OK in 43ms (Views: 39.8ms | ActiveRecord: 0.7ms | Allocations: 16996)
+
+
+  ↳ app/controllers/collections_controller.rb:6:in `index'
+  [1m[36mOpera Load (0.1ms)[0m  [1m[34mSELECT "operas".* FROM "operas" INNER JOIN "opera_collections" ON "operas"."id" = "opera_collections"."opera_id" WHERE "opera_collections"."collection_id" = ?[0m  [["collection_id", 13]]
+  ↳ app/controllers/collections_controller.rb:6:in `index'
+  [1m[36mOpera Load (0.2ms)[0m  [1m[34mSELECT "operas".* FROM "operas" INNER JOIN "opera_collections" ON "operas"."id" = "opera_collections"."opera_id" WHERE "opera_collections"."collection_id" = ?[0m  [["collection_id", 14]]
+  ↳ app/controllers/collections_controller.rb:6:in `index'
+Completed 200 OK in 68ms (Views: 0.2ms | ActiveRecord: 1.6ms | Allocations: 26008)
+
+
+Started POST "/collections" for 127.0.0.1 at 2021-05-18 18:26:41 -0700
+Processing by CollectionsController#create as JSON
+  Parameters: {"collection"=>{"name"=>" ", "user"=>" ", "opera_ids"=>[9, 13]}}
+  [1m[36mOpera Load (0.5ms)[0m  [1m[34mSELECT "operas".* FROM "operas" WHERE "operas"."id" IN (?, ?)[0m  [[nil, 9], [nil, 13]]
+  ↳ app/controllers/collections_controller.rb:15:in `create'
+Completed 422 Unprocessable Entity in 43ms (Views: 15.0ms | ActiveRecord: 0.8ms | Allocations: 9694)
+
+
+Started GET "/operas" for 127.0.0.1 at 2021-05-18 18:26:47 -0700
+Started GET "/collections" for 127.0.0.1 at 2021-05-18 18:26:47 -0700
+Processing by OperasController#index as */*
+Processing by CollectionsController#index as */*
+  [1m[36mOpera Load (0.7ms)[0m  [1m[34mSELECT "operas".* FROM "operas"[0m
+  [1m[36mCollection Load (0.3ms)[0m  [1m[34mSELECT "collections".* FROM "collections"[0m
+  ↳ app/controllers/operas_controller.rb:7:in `index'
+Completed 200 OK in 8ms (Views: 7.2ms | ActiveRecord: 0.7ms | Allocations: 3318)
+
+
+  ↳ app/controllers/collections_controller.rb:6:in `index'
+  [1m[36mOpera Load (0.3ms)[0m  [1m[34mSELECT "operas".* FROM "operas" INNER JOIN "opera_collections" ON "operas"."id" = "opera_collections"."opera_id" WHERE "opera_collections"."collection_id" = ?[0m  [["collection_id", 11]]
+  ↳ app/controllers/collections_controller.rb:6:in `index'
+  [1m[36mOpera Load (0.7ms)[0m  [1m[34mSELECT "operas".* FROM "operas" INNER JOIN "opera_collections" ON "operas"."id" = "opera_collections"."opera_id" WHERE "opera_collections"."collection_id" = ?[0m  [["collection_id", 13]]
+  ↳ app/controllers/collections_controller.rb:6:in `index'
+  [1m[36mOpera Load (0.3ms)[0m  [1m[34mSELECT "operas".* FROM "operas" INNER JOIN "opera_collections" ON "operas"."id" = "opera_collections"."opera_id" WHERE "opera_collections"."collection_id" = ?[0m  [["collection_id", 14]]
+  ↳ app/controllers/collections_controller.rb:6:in `index'
+Completed 200 OK in 21ms (Views: 0.1ms | ActiveRecord: 1.6ms | Allocations: 7297)
+
+
+Started POST "/operas" for 127.0.0.1 at 2021-05-18 18:26:57 -0700
+Processing by OperasController#create as JSON
+  Parameters: {"title"=>"  ", "director"=>" ", "description"=>" ", "img_src"=>" ", "opera"=>{"title"=>"  ", "director"=>" ", "description"=>" ", "img_src"=>" "}}
+Completed 200 OK in 7ms (Views: 5.4ms | ActiveRecord: 0.0ms | Allocations: 1809)
+
+
+Started GET "/operas" for 127.0.0.1 at 2021-05-18 18:27:04 -0700
+Processing by OperasController#index as */*
+  [1m[36mOpera Load (0.1ms)[0m  [1m[34mSELECT "operas".* FROM "operas"[0m
+  ↳ app/controllers/operas_controller.rb:7:in `index'
+Started GET "/collections" for 127.0.0.1 at 2021-05-18 18:27:04 -0700
+Completed 200 OK in 7ms (Views: 6.1ms | ActiveRecord: 0.1ms | Allocations: 2944)
+
+
+Processing by CollectionsController#index as */*
+  [1m[36mCollection Load (0.1ms)[0m  [1m[34mSELECT "collections".* FROM "collections"[0m
+  ↳ app/controllers/collections_controller.rb:6:in `index'
+  [1m[36mOpera Load (0.2ms)[0m  [1m[34mSELECT "operas".* FROM "operas" INNER JOIN "opera_collections" ON "operas"."id" = "opera_collections"."opera_id" WHERE "opera_collections"."collection_id" = ?[0m  [["collection_id", 11]]
+  ↳ app/controllers/collections_controller.rb:6:in `index'
+  [1m[36mOpera Load (0.2ms)[0m  [1m[34mSELECT "operas".* FROM "operas" INNER JOIN "opera_collections" ON "operas"."id" = "opera_collections"."opera_id" WHERE "opera_collections"."collection_id" = ?[0m  [["collection_id", 13]]
+  ↳ app/controllers/collections_controller.rb:6:in `index'
+  [1m[36mOpera Load (0.1ms)[0m  [1m[34mSELECT "operas".* FROM "operas" INNER JOIN "opera_collections" ON "operas"."id" = "opera_collections"."opera_id" WHERE "opera_collections"."collection_id" = ?[0m  [["collection_id", 14]]
+  ↳ app/controllers/collections_controller.rb:6:in `index'
+Completed 200 OK in 15ms (Views: 0.2ms | ActiveRecord: 0.6ms | Allocations: 4472)
+
+
+Started GET "/operas" for 127.0.0.1 at 2021-05-20 06:15:19 -0700
+Started GET "/collections" for 127.0.0.1 at 2021-05-20 06:15:19 -0700
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by OperasController#index as */*
+  [1m[36mOpera Load (0.2ms)[0m  [1m[34mSELECT "operas".* FROM "operas"[0m
+Processing by CollectionsController#index as */*
+  ↳ app/controllers/operas_controller.rb:7:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Completed 200 OK in 26ms (Views: 14.3ms | ActiveRecord: 0.7ms | Allocations: 13028)
+
+
+  ↳ app/controllers/collections_controller.rb:6:in `index'
+  [1m[36mCollection Load (0.2ms)[0m  [1m[34mSELECT "collections".* FROM "collections"[0m
+  ↳ app/controllers/collections_controller.rb:6:in `index'
+  [1m[36mOpera Load (0.3ms)[0m  [1m[34mSELECT "operas".* FROM "operas" INNER JOIN "opera_collections" ON "operas"."id" = "opera_collections"."opera_id" WHERE "opera_collections"."collection_id" = ?[0m  [["collection_id", 11]]
+  ↳ app/controllers/collections_controller.rb:6:in `index'
+  [1m[36mOpera Load (0.1ms)[0m  [1m[34mSELECT "operas".* FROM "operas" INNER JOIN "opera_collections" ON "operas"."id" = "opera_collections"."opera_id" WHERE "opera_collections"."collection_id" = ?[0m  [["collection_id", 13]]
+  ↳ app/controllers/collections_controller.rb:6:in `index'
+  [1m[36mOpera Load (0.1ms)[0m  [1m[34mSELECT "operas".* FROM "operas" INNER JOIN "opera_collections" ON "operas"."id" = "opera_collections"."opera_id" WHERE "opera_collections"."collection_id" = ?[0m  [["collection_id", 14]]
+  ↳ app/controllers/collections_controller.rb:6:in `index'
+Completed 200 OK in 51ms (Views: 0.1ms | ActiveRecord: 2.0ms | Allocations: 20417)
+
+

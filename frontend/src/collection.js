@@ -38,42 +38,12 @@ class Collection {
          
         }
 
-        // 2nd 
-        renderCollection(){
-            // debugger
-            // iterate over the titles contained within the collection
-            let alphaOperas = this.operas.sort(function(a, b){
-                // debugger
-                // name1 = pelleas et melisande
-                let name1 = a.title
-                // name2 = don giovanni 
-                let name2 = b.title
-                
-                if (name1 < name2) {
-                    return -1;
-                }  
-                if (name1 > name2) {
-                    return 1;
-                    
-                }
-                return 0;
-                // debugger
-
-            });
-            // alphaOperas is a variable in which all of the operas contained
-            // within this Collection are stored, eg [Don Giovanni, Pelleas et Melisande, 
-            // Dialogues des Carmelites] eg alphaOperas.length = '3'
-            // iterate over alphaOperas to render each individual Opera box 
-            // collectionOpera is a variable in which a single opera within the
-            // collection is stored, eg Don Giovanni
-                for (const collectionOpera of alphaOperas) {
-                    // debugger
-                    // iterate over operas contained within collection 
-                    let o = Opera.all.find(element => element.id === collectionOpera.id);
-                    // debugger 
-                    o.renderOpera(this.grid);
-                    // debugger
-                }
+        // 
+        renderCollection() {
+            for (const collectionOpera of this.operas){
+                let o = Opera.all.find(element => element.id === collectionOpera.id)
+                o.renderOpera(this.grid)
+            }
         }
 
         // 1st this function is triggered by clicking on "avant-garde" or "traditional classics"

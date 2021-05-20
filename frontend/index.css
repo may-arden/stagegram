@@ -1,9 +1,11 @@
 body,h1,h2,h3,h4,h5,h6 {font-family: "Times New Roman", times new roman;}
 
+/* element */
 body, html {
     background-color: rgb(255,209,220);
 }
 
+/* class */
 .box {
   background: rgb(250, 225, 231);
   padding: 0;
@@ -23,7 +25,6 @@ body, html {
 img {
   height: auto;
   width: 260px; 
-  object-fit: fill;
 }
 
 .input {
