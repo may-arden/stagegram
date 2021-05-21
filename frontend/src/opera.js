@@ -29,6 +29,8 @@ class Opera {
         Opera.all.push(this)
         }
 
+        // static methods are like class methods
+        // they cannot be called on instances of objects, only the class itself
         static makeCheckList() {
             this.all.forEach(opera => opera.makeOperaCheckBox())
         }

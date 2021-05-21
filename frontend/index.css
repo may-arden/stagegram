@@ -1,8 +1,8 @@
-body,h1,h2,h3,h4,h5,h6 {font-family: "Times New Roman", times new roman;}
+body,h1,h2,h3,h4,h5,h6 {font-family: "Times New Roman";}
 
 /* element */
 body, html {
-    background-color: rgb(255,209,220);
+  background-color: rgb(255,209,220);
 }
 
 /* class */
@@ -12,15 +12,11 @@ body, html {
 }
 
  .button {
-	/* background-color: 250, 225, 231; */
-	/* font-family: 'Geneva', sans-serif; */
-    font-family: 'Times New Roman', times new roman; 
+  font-family: 'Times New Roman', times new roman; 
 	font-size: 15px;
 	font-weight: normal;
-	/* padding: 10px; */
 	text-decoration:none;
 } 
-
 
 img {
   height: auto;
@@ -29,7 +25,6 @@ img {
 
 .input {
 	font-family:"Times New Roman", times new roman;
-	/* padding:13px 32px; */
 	text-decoration:none;
 }
 
@@ -53,7 +48,6 @@ nav {
   list-style: none;
   float: right;
 }
-
 
 .wrapper {
     display: grid;

@@ -5,44 +5,34 @@ const imgSrcInput = document.querySelector("#opera-img-src")
 
 class OperaApi {
 
-    constructor(port) {
+    constructor(port){
         this.baseUrl = `${port}/operas`
     }
 
-    createOpera(){
+    createOpera() {
         const operaInfo = {
             title: titleInput.value, 
             director: directorInput.value,
             description: descriptionInput.value,
             img_src: imgSrcInput.value  
         }
+
         const configObj = {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
                 Accept: "application/json"
             },
-            body: JSON.stringify(operaInfo)
-             
+            body: JSON.stringify(operaInfo)    
         }
-        fetch(this.baseUrl, configObj)
-        .then (r => r.json())
-        .then (json => {
-            const o = new Opera(json)
-        })
-    }
-    
-        // getOperas() {
-        //     fetch(this.baseUrl)
-        //     .then(r => r.json())
-        //     .then(data => {
-        //         data.forEach(element => {
-        //             const o = new OperaCard(element)
-        //         })
-        //     OperaCard.appendsCards()
-        //     })
-        // }
 
+        fetch(this.baseUrl, configObj)
+            .then (r => r.json())
+              .then (json => {
+                const o = new Opera(json)
+              })
+        }
+    
         getCheckListOperas() {
             fetch(this.baseUrl)
                 // .catch((e => { console.log(e) }))
