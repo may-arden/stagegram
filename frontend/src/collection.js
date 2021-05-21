@@ -66,6 +66,7 @@ class Collection {
                 cDiv.hidden = true 
                 operaCollectionButton.disabled = false 
                 Collection.all.forEach(c => c.button.disabled = false)       
-            }}
+            }
         }
+}
 
