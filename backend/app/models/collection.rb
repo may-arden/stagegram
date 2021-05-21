@@ -3,4 +3,5 @@ class Collection < ApplicationRecord
     has_many :operas, through: :opera_collections 
     validates :user, presence: true 
     validates :name, presence: true 
+    validates_presence_of :operas 
 end

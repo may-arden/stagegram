@@ -13,11 +13,10 @@ class CollectionsController < ApplicationController
     # POST /collections
     def create 
         @collection = Collection.new(collection_params)
-          if @collection.save 
+        if @collection.save 
             render json: @collection.to_json(include: [:operas])
-          else 
+        else 
             render json: @collection.errors, status: :unprocessable_entity
-    
         end     
     end 
 
@@ -34,7 +33,7 @@ class CollectionsController < ApplicationController
         @collection.destroy 
     end 
 
-    private 
+private 
 
     def set_collection 
         @collection = Collection.find(params[:id])

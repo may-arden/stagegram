@@ -16,7 +16,6 @@ class OperasController < ApplicationController
     # POST /operas
     def create 
         @opera = Opera.new(opera_params)
-
         if @opera.save
             render json: @opera 
         else 
@@ -36,11 +35,7 @@ class OperasController < ApplicationController
         @opera.destroy 
     end 
 
-     
-
-    #
-
-    private
+private
 
     def set_opera
         @opera = Opera.find(params[:id])
@@ -49,4 +44,5 @@ class OperasController < ApplicationController
     def opera_params
         params.require(:opera).permit(:title, :director, :description, :img_src)
     end 
+    
 end

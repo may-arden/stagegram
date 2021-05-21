@@ -12,7 +12,6 @@ class OperaCollectionsController < ApplicationController
 
     def create 
         @opera_collection = OperaCollection.new(opera_collection_params)
-
         if @opera_collection.save 
             render json: @opera_collection, status: :created, location: @opera_collection 
         else
@@ -26,14 +25,13 @@ class OperaCollectionsController < ApplicationController
         else
             render json: @opera_collection.errors, status: :unprocessable_entity
         end 
-
     end 
 
     def destroy 
         @opera_collection.destroy 
     end 
 
-    private 
+private 
 
     def set_opera_collection 
         @opera_collection = OperaCollection.find(params[:id])
