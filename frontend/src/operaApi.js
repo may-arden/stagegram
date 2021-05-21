@@ -31,17 +31,17 @@ class OperaApi {
               .then (json => {
                 const o = new Opera(json)
               })
-        }
+    }
     
-        getCheckListOperas() {
-            fetch(this.baseUrl)
-                // .catch((e => { console.log(e) }))
-                .then(r => r.json())
-                    .then(data => {
-                        // console.log(data)
-                        data.forEach(element => {
-                            let o = new Opera(element)
-                        })
+    getCheckListOperas() {
+        fetch(this.baseUrl)
+            // .catch((e => { console.log(e) }))
+            .then(r => r.json())
+                .then(data => {
+                    // console.log(data)
+                    data.forEach(element => {
+                        let o = new Opera(element)
                     })
-        }
+                })
+    }
 }
