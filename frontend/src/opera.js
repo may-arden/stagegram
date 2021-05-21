@@ -61,10 +61,17 @@ class Opera {
             htmlElement.appendChild(this.element)
         }
 
+        // renderAlphaOperas() 
 
-        displayBack = (e) => {
-            e.front.hidden = true
-            e.back.hidden = false 
+
+        // displayBack = (e) => {
+        //     e.front.hidden = true
+        //     e.back.hidden = false 
+        // }
+
+        displayBack = () => {
+            this.front.hidden = true 
+            this.back.hidden = false 
         }
 
         displayFront = (e) => {

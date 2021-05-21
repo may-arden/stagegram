@@ -8,6 +8,7 @@ class CollectionApi {
     }
 
     getCollections() {
+        // returns a promise 
         fetch(this.baseUrl)
             .then(r => r.json())
                 .then(data => { 

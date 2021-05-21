@@ -8,6 +8,8 @@ const operaCollectionButton = document.getElementById("opera-collection-btn")
 const makeCollectionBtn = document.getElementById("make-collection-button")
 const addOperaShowFormBtn = document.getElementById("add-opera-form-btn")
 
+const sortOperasBtn = document.getElementById("sort-operas-button")
+
 // forms and containers 
 const operaFormContainer = document.querySelector("#create-opera-form")
 const addOperaForm = document.getElementById("add-opera-form")
@@ -21,6 +23,34 @@ const collectionBtnDiv = document.getElementById("collection-buttons")
 
 addOperaForm.addEventListener("submit", handleNewOperaSubmit) 
 collectionForm.addEventListener("submit", handleSubmit)
+
+
+// builds method to handle 'click' event on sort operas alpha button
+// which will then trigger a function in operas.js which has not yet been written
+// to render the alphabetized operas
+    // let displayAlphaOperas = false 
+    sortOperasBtn.addEventListener("click", () => {
+        // displayAlphaOperas = !displayAlphaOperas;
+        // if (displayAlphaOperas) {
+        //   sortOperasBtn.hidden = 
+      Opera.all.sort(function(a, b) {
+        let nameA = a.title.toUpperCase(); 
+        let nameB = b.title.toUpperCase();
+        if (nameA < nameB) {
+          return -1;
+        }
+        if (nameA > nameB) {
+          return 1;
+          
+        }
+        return 0;
+         
+      })
+       Opera.appendOperas() 
+      // }else {
+
+      // }
+    })
 
 // add opera form visibility 
     let addOpera = false
