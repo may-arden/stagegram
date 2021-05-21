@@ -73,6 +73,7 @@ makeCollectionBtn.addEventListener("click", () => {
         
         addOpera = false 
         addOperaShowFormBtn.innerText = "add an opera";
+        [addOperaShowFormBtn.disabled, operaCollectionButton.disabled, makeCollectionBtn.disabled] = [false, false]
         operaFormContainer.style.display = "none";
     }
 
@@ -94,23 +95,20 @@ makeCollectionBtn.addEventListener("click", () => {
     function handleSubmit(e){
         e.preventDefault();
         collectionApi.createCollection();
-        // debugger 
         e.target.reset();
-        // debugger 
         alert("collection successfully created :)");
         showCollectionForm = false 
         makeCollectionBtn.innerText = "make a collection";
         [addOperaShowFormBtn.disabled, operaCollectionButton.disabled] = [false, false]
         collectionFormContainer.hidden = true; 
         Opera.removeCheckList(); 
-        // debugger 
     }
 
 
 
 operaApi.getCheckListOperas() 
 collectionApi.getCollections() 
-// operaApi.getOperas()
+
 
 
 
