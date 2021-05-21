@@ -43,26 +43,20 @@ class Collection {
             //event.target.id is '6'
             let c = Collection.all.filter(collection => collection.id === id)
             let rest = Collection.all.filter(collection => collection.id !== id)
-            // iterate over the operas contained within that object
+            // iterate over the operas within collection id 6 and populate new array with them
+            // iterate over the operas not within collection id 6 and populate new array with them
+            // render operas within new array id 6 collection
            c[0].renderCollection()
-            // c[0].div = <div id="collection-6" hidden>
-            //              <div class="box" id="opera-36"></div>
-            //                 <div id="front-36"></div>
-            //                  <div id="back-36"></div>
-            //                          + other boxes
-            //               </div>
-            //              </div>
+            // hide and seek button
             let cDiv = c[0].div
             if (cDiv.hidden){
                 cDiv.hidden = false 
-            // hide and seek buttons
+                // disable other collection buttons
                 rest.forEach(c => c.button.disabled = true) 
+                // disable master collectino button
                 operaCollectionButton.disabled = true 
-                
             } else {
-            // and if you're not looking at a collection, 
-            // the buttons corresponding to the other collections
-            // are enabled
+                // if this collection with id of 6 is hidden, other collection buttons are enabled 
                 cDiv.hidden = true 
                 operaCollectionButton.disabled = false 
                 Collection.all.forEach(c => c.button.disabled = false)       
