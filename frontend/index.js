@@ -28,11 +28,7 @@ collectionForm.addEventListener("submit", handleSubmit)
 // builds method to handle 'click' event on sort operas alpha button
 // which will then trigger a function in operas.js which has not yet been written
 // to render the alphabetized operas
-    // let displayAlphaOperas = false 
     sortOperasBtn.addEventListener("click", () => {
-        // displayAlphaOperas = !displayAlphaOperas;
-        // if (displayAlphaOperas) {
-        //   sortOperasBtn.hidden = 
       Opera.all.sort(function(a, b) {
         let nameA = a.title.toUpperCase(); 
         let nameB = b.title.toUpperCase();
@@ -47,9 +43,6 @@ collectionForm.addEventListener("submit", handleSubmit)
          
       })
        Opera.appendOperas() 
-      // }else {
-
-      // }
     })
 
 // add opera form visibility 
@@ -75,6 +68,7 @@ collectionForm.addEventListener("submit", handleSubmit)
         showCollectionForm = !showCollectionForm;
           if (showCollectionForm) {
             collectionFormContainer.hidden = false; 
+            sortOperasBtn.hidden = false;
             Opera.makeCheckList()
             Opera.appendOperas();
             makeCollectionBtn.innerText = "nevermind";
@@ -82,6 +76,7 @@ collectionForm.addEventListener("submit", handleSubmit)
           }else {
             Opera.removeCheckList()
             collectionFormContainer.hidden = true;
+            sortOperasBtn.hidden = true; 
             checkBoxOperaDiv.innerHTML = "";
             makeCollectionBtn.innerText = "make a collection";
             [addOperaShowFormBtn.disabled, operaCollectionButton.disabled] = [false, false]

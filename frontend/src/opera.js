@@ -48,6 +48,7 @@ class Opera {
             div.innerHTML = `<div class="check-box-div"><input type="checkbox" id="${this.id}" name="opera_ids" value="${this.id}"></div>`
             this.element.appendChild(div)
         }
+        
         removeOperaCheckBox() {
             let div = document.querySelector(".check-box-div")
             div.remove()
